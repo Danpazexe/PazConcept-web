@@ -96,11 +96,15 @@ export default function Sistemas() {
                     </div>
                     <div className="flex min-h-56 flex-1 flex-col items-center justify-center gap-4 bg-gradient-to-br from-roxo-claro to-roxo-escuro p-8">
                       <Image
-                        src="/variacoes/logo-branca.png"
-                        alt=""
-                        width={110}
-                        height={110}
-                        className="drop-shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
+                        src={d.icone ?? "/variacoes/logo-branca.png"}
+                        alt={`Ícone do ${d.nome}`}
+                        width={116}
+                        height={116}
+                        className={
+                          d.icone
+                            ? "rounded-3xl shadow-[0_16px_40px_rgba(0,0,0,0.3)]"
+                            : "drop-shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
+                        }
                       />
                       <span className="font-heading text-xl font-bold text-creme">{d.nome}</span>
                     </div>

@@ -36,6 +36,7 @@ export type Destaque = {
   status: "Em produção" | "Em desenvolvimento" | "Em breve";
   url: string; // link de acesso ao sistema ("" = ainda sem link público)
   repo?: string; // link do repositório (opcional)
+  icone?: string; // ícone do sistema (arquivo em /public)
   recursos: string[];
   dominio: string; // endereço exibido na "janela" do card
 };
@@ -44,14 +45,15 @@ export const DESTAQUES: Destaque[] = [
   {
     nome: "DietSpace",
     descricao:
-      "Plataforma para controle de dieta e alimentação: refeições, metas e acompanhamento da evolução no dia a dia.",
+      "Sistema para consultório de nutrição: da anamnese ao plano na mão da paciente — avaliação completa, plano alimentar, agenda com lembretes e app da paciente.",
     status: "Em produção",
-    url: "", // EDITE AQUI → link do DietSpace quando estiver no ar
+    url: "https://www.dietspace.com.br",
+    icone: "/dietspace-icon.png",
     recursos: [
-      "Registro de refeições e alimentos",
-      "Metas e acompanhamento de evolução",
-      "Pensado para o uso diário, simples e direto",
+      "Avaliação completa e anamnese",
+      "Plano alimentar com mais de 10 mil alimentos",
+      "Agenda com lembretes e app da paciente",
     ],
-    dominio: "dietspace — em breve no ar",
+    dominio: "www.dietspace.com.br",
   },
 ];
