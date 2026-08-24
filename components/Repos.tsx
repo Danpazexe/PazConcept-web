@@ -35,8 +35,8 @@ export default function Repos({ repos }: { repos: Repo[] }) {
       <div className="mx-auto w-[min(1160px,92%)]">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SecaoCabecalho rotulo="Projetos" titulo="Repositórios no GitHub">
-            Esta lista se atualiza sozinha: todo repositório público que eu
-            criar aparece aqui automaticamente.
+            Esta lista se atualiza sozinha: todo repositório que eu criar
+            aparece aqui automaticamente — os privados vêm marcados.
           </SecaoCabecalho>
           <a
             href={SITE.redes.github}
@@ -85,6 +85,15 @@ export default function Repos({ repos }: { repos: Repo[] }) {
                   <h3 className="font-heading font-semibold break-all text-tinta">
                     {r.name}
                   </h3>
+                  {r.private && (
+                    <span className="ml-auto inline-flex shrink-0 items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 font-mono text-[0.62rem] font-semibold tracking-wider text-amber-600 uppercase">
+                      <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                      </svg>
+                      Privado
+                    </span>
+                  )}
                 </div>
 
                 <p className="mt-3.5 flex-1 text-[0.92rem] text-suave">
@@ -113,14 +122,24 @@ export default function Repos({ repos }: { repos: Repo[] }) {
                 </div>
 
                 <div className="mt-5 flex gap-3 border-t border-linha pt-5">
-                  <a
-                    href={r.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-linha px-4 py-2.5 text-sm font-semibold text-tinta transition-all hover:border-roxo hover:bg-roxo-suave"
-                  >
-                    Repositório
-                  </a>
+                  {r.private ? (
+                    <span className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-dashed border-linha px-4 py-2.5 text-sm font-semibold text-suave">
+                      <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                      </svg>
+                      Código privado
+                    </span>
+                  ) : (
+                    <a
+                      href={r.html_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-linha px-4 py-2.5 text-sm font-semibold text-tinta transition-all hover:border-roxo hover:bg-roxo-suave"
+                    >
+                      Repositório
+                    </a>
+                  )}
                   {r.homepage && (
                     <a
                       href={r.homepage}
