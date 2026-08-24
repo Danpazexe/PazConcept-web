@@ -45,6 +45,32 @@ export type Destaque = {
   dominio: string; // endereço exibido na "janela" do card
 };
 
+/* ---------- Projetos futuros (o que vem por aí) ---------- */
+
+export type ProjetoFuturo = {
+  nome: string;
+  descricao: string;
+  status: "Em desenvolvimento" | "Planejado";
+  tags: string[];
+};
+
+export const FUTUROS: ProjetoFuturo[] = [
+  {
+    nome: "Personal Trainer",
+    descricao:
+      "Aplicativo para personal trainers: gestão de alunos, montagem de treinos e acompanhamento da evolução — tudo em um só lugar.",
+    status: "Em desenvolvimento",
+    tags: ["App mobile", "SaaS"],
+  },
+  {
+    nome: "MecanicaOS",
+    descricao:
+      "Sistema de gestão para oficinas mecânicas: ordens de serviço, clientes e controle completo da oficina, do check-in do veículo à entrega.",
+    status: "Em desenvolvimento",
+    tags: ["SaaS", "Web"],
+  },
+];
+
 export const DESTAQUES: Destaque[] = [
   {
     nome: "DietSpace",
