@@ -14,20 +14,23 @@ export interface Repo {
   topics?: string[];
 }
 
-/** Busca os repositórios públicos no GitHub (atualiza a cada 1h). */
+/** Busca os repositórios públicos no GitHub (atualiza a cada 10 minutos). */
 export async function getRepos(): Promise<Repo[]> {
   try {
     const res = await fetch(
       `https://api.github.com/users/${SITE.usuario}/repos?sort=pushed&per_page=100`,
       {
         headers: { Accept: "application/vnd.github+json" },
-        next: { revalidate: 3600 },
+        next: { revalidate: 600 },
       }
     );
     if (!res.ok) return [];
     const repos: Repo[] = await res.json();
     return repos.filter(
-      (r) => !r.fork && !r.archived && !SITE.reposOcultos.includes(r.name)
+      (r) =>
+        (SITE.mostrarForks || !r.fork) &&
+        !r.archived &&
+        !SITE.reposOcultos.includes(r.name)
     );
   } catch {
     return [];

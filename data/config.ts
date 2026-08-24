@@ -25,6 +25,9 @@ export const SITE = {
 
   // Repositórios que NÃO devem aparecer na lista automática
   reposOcultos: ["Danpazexe"],
+
+  // Mostrar também os forks (cópias de projetos de outras pessoas)?
+  mostrarForks: false,
 };
 
 /* ---------- Sistemas em destaque (curadoria manual) ----------
