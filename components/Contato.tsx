@@ -27,7 +27,7 @@ export default function Contato() {
     "w-full rounded-xl border border-linha bg-fundo-suave px-4 py-3 text-[0.94rem] text-tinta placeholder:text-suave/60 transition-all focus:border-roxo focus:bg-white focus:ring-4 focus:ring-roxo/15 focus:outline-none";
 
   return (
-    <section id="contato" className="border-t border-linha bg-fundo-suave py-24">
+    <section id="contato" className="py-24">
       <div className="mx-auto w-[min(1160px,92%)]">
         <SecaoCabecalho rotulo="Contato" titulo="Vamos conversar?">
           Quer conhecer um sistema, tirar uma dúvida ou propor um projeto? Me

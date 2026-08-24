@@ -9,7 +9,7 @@ const SELOS: Record<string, string> = {
 
 export default function Futuros() {
   return (
-    <section id="futuros" className="border-y border-linha bg-fundo-suave py-24">
+    <section id="futuros" className="py-24">
       <div className="mx-auto w-[min(1160px,92%)]">
         <SecaoCabecalho rotulo="Em breve" titulo="Projetos futuros">
           O que está sendo construído agora e chega em breve por aqui.

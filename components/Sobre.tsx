@@ -50,7 +50,7 @@ const VALORES = [
 
 export default function Sobre() {
   return (
-    <section id="sobre" className="py-24">
+    <section id="sobre" className="border-y border-linha bg-fundo-suave py-24">
       <div className="mx-auto grid w-[min(1160px,92%)] items-center gap-16 lg:grid-cols-2">
         <Reveal>
           <Rotulo>Sobre</Rotulo>
