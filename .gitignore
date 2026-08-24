@@ -2,6 +2,7 @@ node_modules/
 .next/
 .vercel/
 .env*
+!.env.example
 .DS_Store
 Sem título.png
 *.tsbuildinfo
