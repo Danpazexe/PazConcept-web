@@ -21,9 +21,20 @@ export default function Sistemas() {
         <div className="grid gap-8">
           {DESTAQUES.map((d, i) => (
             <Reveal key={d.nome} delay={i * 0.1}>
-              <article className="grid overflow-hidden rounded-3xl border border-linha bg-white shadow-[0_12px_40px_rgba(29,18,51,0.06)] lg:grid-cols-[1.05fr_0.95fr]">
+              {/* moldura em gradiente (vitrine de lançamento) */}
+              <div className="rounded-3xl bg-gradient-to-br from-roxo-claro/60 via-linha to-roxo-escuro/50 p-[1.5px] shadow-[0_22px_70px_rgba(124,34,206,0.18)]">
+              <article className="grid overflow-hidden rounded-[calc(1.5rem-1.5px)] bg-white lg:grid-cols-[1.05fr_0.95fr]">
                 {/* Informações */}
                 <div className="flex flex-col p-8 sm:p-10">
+                  {d.lancamento && (
+                    <span className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-roxo-claro to-roxo-escuro px-4 py-1.5 font-mono text-[0.62rem] font-semibold tracking-[0.14em] text-white uppercase shadow-[0_6px_18px_rgba(124,34,206,0.35)]">
+                      <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-70" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+                      </span>
+                      Lançamento 🚀
+                    </span>
+                  )}
                   <div className="flex flex-wrap items-center gap-3">
                     <h3 className="font-heading text-2xl font-bold text-tinta sm:text-3xl">
                       {d.nome}
@@ -84,34 +95,80 @@ export default function Sistemas() {
                   </div>
                 </div>
 
-                {/* Mockup de janela */}
-                <div className="relative flex flex-col border-t border-linha bg-fundo-suave p-6 sm:p-8 lg:border-t-0 lg:border-l">
-                  <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-linha bg-white shadow-[0_14px_40px_rgba(29,18,51,0.1)]">
-                    <div className="flex items-center gap-2 border-b border-linha bg-fundo-suave px-4 py-3">
-                      <span className="h-3 w-3 rounded-full bg-[#FF5F57]" />
-                      <span className="h-3 w-3 rounded-full bg-[#FEBC2E]" />
-                      <span className="h-3 w-3 rounded-full bg-[#28C840]" />
-                      <span className="mx-auto rounded-md border border-linha bg-white px-4 py-0.5 font-mono text-[0.7rem] text-suave">
-                        {d.dominio}
-                      </span>
+                {/* Vitrine: navegador com o sistema real + celular flutuante */}
+                <div className="relative flex flex-col justify-center border-t border-linha bg-fundo-suave p-6 pb-16 sm:p-9 sm:pb-16 lg:border-t-0 lg:border-l">
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-[radial-gradient(circle_at_72%_25%,rgba(124,34,206,0.14),transparent_60%)]"
+                  />
+                  <div className="group relative">
+                    <div className="overflow-hidden rounded-2xl border border-linha bg-white shadow-[0_24px_60px_rgba(29,18,51,0.18)]">
+                      <div className="flex items-center gap-2 border-b border-linha bg-white px-4 py-3">
+                        <span className="h-3 w-3 rounded-full bg-[#FF5F57]" />
+                        <span className="h-3 w-3 rounded-full bg-[#FEBC2E]" />
+                        <span className="h-3 w-3 rounded-full bg-[#28C840]" />
+                        <span className="mx-auto rounded-md border border-linha bg-fundo-suave px-4 py-0.5 font-mono text-[0.7rem] text-suave">
+                          {d.dominio}
+                        </span>
+                      </div>
+                      {d.imagem ? (
+                        <Image
+                          src={d.imagem}
+                          alt={`Tela do ${d.nome}`}
+                          width={1280}
+                          height={800}
+                          className="w-full transition-transform duration-500 group-hover:scale-[1.03]"
+                        />
+                      ) : (
+                        <div className="flex min-h-56 flex-col items-center justify-center gap-4 bg-gradient-to-br from-roxo-claro to-roxo-escuro p-8">
+                          <Image
+                            src={d.icone ?? "/logo-pc-branca.png"}
+                            alt={`Ícone do ${d.nome}`}
+                            width={116}
+                            height={116}
+                            className={
+                              d.icone
+                                ? "rounded-3xl shadow-[0_16px_40px_rgba(0,0,0,0.3)]"
+                                : "drop-shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
+                            }
+                          />
+                          <span className="font-heading text-xl font-bold text-creme">{d.nome}</span>
+                        </div>
+                      )}
                     </div>
-                    <div className="flex min-h-56 flex-1 flex-col items-center justify-center gap-4 bg-gradient-to-br from-roxo-claro to-roxo-escuro p-8">
+
+                    {d.imagemMobile && (
+                      <div className="absolute -bottom-10 -left-3 w-[100px] rotate-[-7deg] overflow-hidden rounded-[1.3rem] border-[5px] border-white shadow-[0_20px_46px_rgba(29,18,51,0.35)] transition-transform duration-500 group-hover:rotate-[-3deg] sm:w-[118px]">
+                        <Image
+                          src={d.imagemMobile}
+                          alt={`${d.nome} no celular`}
+                          width={390}
+                          height={844}
+                          className="w-full"
+                        />
+                      </div>
+                    )}
+
+                    {d.icone && d.imagem && (
                       <Image
-                        src={d.icone ?? "/logo-pc-branca.png"}
-                        alt={`Ícone do ${d.nome}`}
-                        width={116}
-                        height={116}
-                        className={
-                          d.icone
-                            ? "rounded-3xl shadow-[0_16px_40px_rgba(0,0,0,0.3)]"
-                            : "drop-shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
-                        }
+                        src={d.icone}
+                        alt=""
+                        width={62}
+                        height={62}
+                        className="absolute -top-5 -right-3 rotate-6 rounded-2xl shadow-[0_14px_32px_rgba(29,18,51,0.3)] ring-4 ring-white transition-transform duration-500 group-hover:rotate-3"
                       />
-                      <span className="font-heading text-xl font-bold text-creme">{d.nome}</span>
-                    </div>
+                    )}
+
+                    <span
+                      aria-hidden
+                      className="absolute -top-7 left-6 rotate-[-8deg] font-script text-3xl text-roxo-claro"
+                    >
+                      ✦
+                    </span>
                   </div>
                 </div>
               </article>
+              </div>
             </Reveal>
           ))}
         </div>

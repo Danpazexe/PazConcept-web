@@ -41,6 +41,9 @@ export type Destaque = {
   url: string; // link de acesso ao sistema ("" = ainda sem link público)
   repo?: string; // link do repositório (opcional)
   icone?: string; // ícone do sistema (arquivo em /public)
+  imagem?: string; // screenshot desktop do sistema (arquivo em /public)
+  imagemMobile?: string; // screenshot mobile (arquivo em /public)
+  lancamento?: boolean; // exibe o selo animado de lançamento
   recursos: string[];
   dominio: string; // endereço exibido na "janela" do card
 };
@@ -79,6 +82,9 @@ export const DESTAQUES: Destaque[] = [
     status: "Em teste",
     url: "https://www.dietspace.com.br",
     icone: "/dietspace-icon.png",
+    imagem: "/dietspace-desktop.jpg",
+    imagemMobile: "/dietspace-mobile.jpg",
+    lancamento: true,
     recursos: [
       "Avaliação completa e anamnese",
       "Plano alimentar com mais de 10 mil alimentos",
