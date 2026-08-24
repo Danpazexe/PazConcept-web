@@ -56,7 +56,7 @@ export type ProjetoFuturo = {
 
 export const FUTUROS: ProjetoFuturo[] = [
   {
-    nome: "Personal Trainer",
+    nome: "PerformX",
     descricao:
       "Aplicativo para personal trainers: gestão de alunos, montagem de treinos e acompanhamento da evolução — tudo em um só lugar.",
     status: "Em desenvolvimento",
