@@ -17,12 +17,31 @@ const LINKS = [
 export default function Header() {
   const [rolado, setRolado] = useState(false);
   const [aberto, setAberto] = useState(false);
+  const [secaoAtiva, setSecaoAtiva] = useState("inicio");
 
   useEffect(() => {
     const aoRolar = () => setRolado(window.scrollY > 10);
     aoRolar();
     window.addEventListener("scroll", aoRolar, { passive: true });
     return () => window.removeEventListener("scroll", aoRolar);
+  }, []);
+
+  // destaca no menu a seção visível na tela
+  useEffect(() => {
+    const ids = ["inicio", "servicos", "sistemas", "futuros", "design", "sobre", "contato"];
+    const observador = new IntersectionObserver(
+      (entradas) => {
+        entradas.forEach((e) => {
+          if (e.isIntersecting) setSecaoAtiva(e.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observador.observe(el);
+    });
+    return () => observador.disconnect();
   }, []);
 
   return (
@@ -46,7 +65,10 @@ export default function Header() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-grafite transition-colors hover:text-roxo"
+              aria-current={secaoAtiva === l.href.slice(1) ? "true" : undefined}
+              className={`text-sm font-medium transition-colors hover:text-roxo ${
+                secaoAtiva === l.href.slice(1) ? "font-semibold text-roxo" : "text-grafite"
+              }`}
             >
               {l.label}
             </a>
