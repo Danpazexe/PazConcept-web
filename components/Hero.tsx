@@ -70,12 +70,10 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
       </motion.div>
 
       {/* Universo de estrelas interativo (reage ao mouse).
-          A máscara deixa as estrelas discretas na área do texto
-          e com brilho total na área da logo */}
-      <div
-        className="pointer-events-none absolute inset-0 [-webkit-mask-image:linear-gradient(100deg,rgba(0,0,0,0.45)_0%,rgba(0,0,0,0.55)_45%,rgba(0,0,0,0.85)_65%,#000_85%)] [mask-image:linear-gradient(100deg,rgba(0,0,0,0.45)_0%,rgba(0,0,0,0.55)_45%,rgba(0,0,0,0.85)_65%,#000_85%)]"
-        aria-hidden
-      >
+          O fade que deixa as estrelas discretas na área do texto é
+          desenhado dentro do próprio canvas — sem máscara CSS, que
+          custava uma passada de composição por quadro */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Estrelas />
       </div>
 

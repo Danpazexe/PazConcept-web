@@ -42,8 +42,12 @@ export default function Estrelas() {
     const g = ctx;
 
     const reduzir = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    // 1.5x já é nítido para brilhos suaves — em tela Retina isso corta ~44% dos pixels desenhados
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     let w = 0, h = 0, raf = 0, ativo = true;
+    let docLeft = 0, docTop = 0;
+    // fade lateral (antes era mask-image no CSS; aqui sai de graça, sem passada extra de composição)
+    let fadeDirX = 0.9848, fadeDirY = 0.1736, fadeL = 1;
     let estrelas: Estrela[] = [];
     let pontas: Ponta4[] = [];
     const cadentes: Cadente[] = [];
@@ -79,6 +83,12 @@ export default function Estrelas() {
       cv.style.width = `${w}px`;
       cv.style.height = `${h}px`;
       g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      docLeft = rect.left + window.scrollX;
+      docTop = rect.top + window.scrollY;
+      const ang = (100 * Math.PI) / 180; // mesmo ângulo do gradiente antigo (100deg)
+      fadeDirX = Math.sin(ang);
+      fadeDirY = -Math.cos(ang);
+      fadeL = Math.abs(w * fadeDirX) + Math.abs(h * fadeDirY);
       alvo.x = mouse.x = w / 2;
       alvo.y = mouse.y = h / 2;
 
@@ -106,6 +116,39 @@ export default function Estrelas() {
         rot: Math.random() * Math.PI,
         vrot: (Math.random() - 0.5) * 0.004,
       }));
+    }
+
+    /* Curva idêntica ao antigo mask-image:
+       linear-gradient(100deg, 45% 0%, 55% 45%, 85% 65%, 100% 85%) */
+    function fade(x: number, y: number) {
+      const t = ((x - w / 2) * fadeDirX + (y - h / 2) * fadeDirY) / fadeL + 0.5;
+      if (t <= 0) return 0.45;
+      if (t < 0.45) return 0.45 + (t / 0.45) * 0.1;
+      if (t < 0.65) return 0.55 + ((t - 0.45) / 0.2) * 0.3;
+      if (t < 0.85) return 0.85 + ((t - 0.65) / 0.2) * 0.15;
+      return 1;
+    }
+
+    // baldes de linhas por opacidade: 1 stroke() por balde em vez de 1 por linha
+    const NIVEIS = 6;
+    const baldes: number[][] = Array.from({ length: NIVEIS }, () => []);
+    const baldesCursor: number[][] = Array.from({ length: NIVEIS }, () => []);
+
+    function desenharBaldes(lista: number[][], corLinha: string, alfaMax: number) {
+      g.strokeStyle = corLinha;
+      for (let n = 0; n < NIVEIS; n++) {
+        const seg = lista[n];
+        if (!seg.length) continue;
+        g.globalAlpha = ((n + 0.5) / NIVEIS) * alfaMax;
+        g.beginPath();
+        for (let s = 0; s < seg.length; s += 4) {
+          g.moveTo(seg[s], seg[s + 1]);
+          g.lineTo(seg[s + 2], seg[s + 3]);
+        }
+        g.stroke();
+        seg.length = 0;
+      }
+      g.globalAlpha = 1;
     }
 
     function desenharPonta4(x: number, y: number, r: number, rot: number, alfa: number) {
@@ -161,21 +204,20 @@ export default function Estrelas() {
         e.dy = e.y + oy;
       }
 
-      // constelações entre estrelas
+      // constelações entre estrelas (agrupadas por opacidade — poucos strokes)
       g.lineWidth = 1;
       for (let i = 0; i < estrelas.length; i++) {
         const a = estrelas[i];
+        const fadeA = fade(a.dx, a.dy);
         for (let j = i + 1; j < estrelas.length; j++) {
           const b = estrelas[j];
           const dx = a.dx - b.dx;
           const dy = a.dy - b.dy;
           const d2 = dx * dx + dy * dy;
           if (d2 < 92 * 92) {
-            g.strokeStyle = `rgba(124,34,206,${(1 - Math.sqrt(d2) / 92) * 0.2})`;
-            g.beginPath();
-            g.moveTo(a.dx, a.dy);
-            g.lineTo(b.dx, b.dy);
-            g.stroke();
+            const alfa = (1 - Math.sqrt(d2) / 92) * fadeA;
+            const n = Math.min(NIVEIS - 1, (alfa * NIVEIS) | 0);
+            baldes[n].push(a.dx, a.dy, b.dx, b.dy);
           }
         }
         // linha da estrela até o cursor
@@ -184,14 +226,14 @@ export default function Estrelas() {
           const dym = a.dy - mouse.y;
           const dm2 = dxm * dxm + dym * dym;
           if (dm2 < 170 * 170) {
-            g.strokeStyle = `rgba(157,78,221,${(1 - Math.sqrt(dm2) / 170) * 0.4})`;
-            g.beginPath();
-            g.moveTo(a.dx, a.dy);
-            g.lineTo(mouse.x, mouse.y);
-            g.stroke();
+            const alfa = (1 - Math.sqrt(dm2) / 170) * fadeA;
+            const n = Math.min(NIVEIS - 1, (alfa * NIVEIS) | 0);
+            baldesCursor[n].push(a.dx, a.dy, mouse.x, mouse.y);
           }
         }
       }
+      desenharBaldes(baldes, "#7C22CE", 0.2);
+      if (alvo.dentro) desenharBaldes(baldesCursor, "#9D4EDD", 0.4);
 
       // estrelas com brilho
       for (const e of estrelas) {
@@ -201,7 +243,7 @@ export default function Estrelas() {
         const perto = alvo.dentro && dxm * dxm + dym * dym < RAIO_MOUSE * RAIO_MOUSE;
         const tam = e.r * e.z * (perto ? 1.6 : 1);
         const halo = tam * 7;
-        g.globalAlpha = Math.min(1, cintilar + (perto ? 0.5 : 0)) * 0.9;
+        g.globalAlpha = Math.min(1, cintilar + (perto ? 0.5 : 0)) * 0.9 * fade(e.dx, e.dy);
         g.drawImage(sprites[e.cor], e.dx - halo / 2, e.dy - halo / 2, halo, halo);
       }
       g.globalAlpha = 1;
@@ -212,7 +254,7 @@ export default function Estrelas() {
         const pulso = 0.35 + 0.3 * Math.abs(Math.sin(t / 1400 + p.fase));
         const ox = px * 40 * p.z;
         const oy = py * 40 * p.z;
-        desenharPonta4(p.x + ox, p.y + oy, p.r * p.z, p.rot, pulso);
+        desenharPonta4(p.x + ox, p.y + oy, p.r * p.z, p.rot, pulso * fade(p.x + ox, p.y + oy));
       }
       g.globalAlpha = 1;
 
@@ -240,9 +282,10 @@ export default function Estrelas() {
           }
           const cx = c.x - c.vx * 9;
           const cy = c.y - c.vy * 9;
+          const fadeC = fade(c.x, c.y);
           const grad = g.createLinearGradient(cx, cy, c.x, c.y);
           grad.addColorStop(0, "rgba(180,122,255,0)");
-          grad.addColorStop(1, `rgba(200,155,255,${0.85 * c.vida})`);
+          grad.addColorStop(1, `rgba(200,155,255,${0.85 * c.vida * fadeC})`);
           g.strokeStyle = grad;
           g.lineWidth = 2.2;
           g.lineCap = "round";
@@ -250,7 +293,7 @@ export default function Estrelas() {
           g.moveTo(cx, cy);
           g.lineTo(c.x, c.y);
           g.stroke();
-          g.globalAlpha = c.vida;
+          g.globalAlpha = c.vida * fadeC;
           g.drawImage(sprites[2], c.x - 11, c.y - 11, 22, 22);
           g.globalAlpha = 1;
         }
@@ -267,7 +310,7 @@ export default function Estrelas() {
             faiscas.splice(i, 1);
             continue;
           }
-          g.globalAlpha = f.vida;
+          g.globalAlpha = f.vida * fade(f.x, f.y);
           g.drawImage(sprites[f.cor], f.x - 8, f.y - 8, 16, 16);
         }
         g.globalAlpha = 1;
@@ -276,9 +319,10 @@ export default function Estrelas() {
       if (!reduzir && ativo) raf = requestAnimationFrame(quadro);
     }
 
+    /* Posição do canvas em cache (medida no medir()) — nada de
+       getBoundingClientRect a cada mousemove, que força layout */
     function posRelativa(cx: number, cy: number) {
-      const rect = cv.getBoundingClientRect();
-      return { x: cx - rect.left, y: cy - rect.top, rect };
+      return { x: cx - docLeft + window.scrollX, y: cy - docTop + window.scrollY };
     }
     function aoMover(ev: MouseEvent) {
       const p = posRelativa(ev.clientX, ev.clientY);
