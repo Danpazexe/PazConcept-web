@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============================================================
+       EDITE AQUI → Nome do site e descrição (aparecem no Google)
+       ============================================================ -->
+  <title>PC Hub — Sistemas &amp; Projetos</title>
+  <meta name="description" content="Porta de entrada oficial dos meus sistemas e projetos. Desenvolvimento de sistemas web, automações, integrações e consultoria em tecnologia.">
+  <meta name="theme-color" content="#0A0612">
+
+  <!-- Open Graph (aparência ao compartilhar o link no WhatsApp/redes) -->
+  <meta property="og:title" content="PC Hub — Sistemas &amp; Projetos">
+  <meta property="og:description" content="Acesse os sistemas em produção, conheça os serviços e acompanhe os projetos.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo.png">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Barra de progresso de leitura -->
+  <div class="progresso" id="progresso"></div>
+
+  <!-- ================= HEADER ================= -->
+  <header id="header">
+    <div class="container nav">
+      <a href="#inicio" class="marca" aria-label="Voltar ao início">
+        <img src="assets/logo.png" alt="Logo" width="42" height="42">
+        <!-- EDITE AQUI → nome da marca -->
+        <span class="marca-nome">PC&nbsp;<em>Hub</em></span>
+      </a>
+
+      <nav aria-label="Navegação principal">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#inicio" class="ativo">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sistemas">Sistemas</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#metodo">Método</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li class="nav-cta"><a href="#contato" class="btn btn-primario btn-p">Fale comigo</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="inicio">
+      <div class="hero-fundo" aria-hidden="true">
+        <div class="aurora aurora-1"></div>
+        <div class="aurora aurora-2"></div>
+        <div class="grade-fundo"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-conteudo">
+          <span class="rotulo revelar">
+            <span class="pulso"></span> Sistemas &amp; Projetos
+          </span>
+
+          <h1 class="revelar">
+            A porta de entrada para
+            <span class="texto-grad">sistemas que resolvem de verdade</span>
+          </h1>
+
+          <p class="hero-sub revelar">
+            Bem-vindo ao ponto central dos meus sistemas e projetos.
+            Acesse as plataformas em produção, conheça os serviços
+            e acompanhe o que está sendo construído.
+          </p>
+
+          <div class="hero-acoes revelar">
+            <a href="#sistemas" class="btn btn-primario">
+              Acessar sistemas
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#servicos" class="btn btn-fantasma">Conhecer serviços</a>
+          </div>
+
+          <!-- EDITE AQUI → números de destaque -->
+          <div class="metricas revelar">
+            <div class="metrica">
+              <b><span class="contador" data-valor="3">0</span>+</b>
+              <small>Sistemas em produção</small>
+            </div>
+            <div class="metrica">
+              <b><span class="contador" data-valor="10">0</span>+</b>
+              <small>Projetos entregues</small>
+            </div>
+            <div class="metrica">
+              <b><span class="contador" data-valor="100">0</span>%</b>
+              <small>Compromisso com resultado</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="anel anel-1"></div>
+          <div class="anel anel-2"></div>
+          <img src="assets/logo.png" alt="" class="hero-logo">
+        </div>
+      </div>
+
+      <a href="#servicos" class="rolar-indicador" aria-label="Rolar para baixo">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+    </section>
+
+    <!-- ================= FAIXA DE TECNOLOGIAS ================= -->
+    <div class="faixa-tech" aria-hidden="true">
+      <div class="faixa-trilho">
+        <!-- EDITE AQUI → tecnologias que você usa (a lista é duplicada pelo JS) -->
+        <ul class="faixa-lista" id="faixa-lista">
+          <li>JavaScript</li><li>TypeScript</li><li>React</li><li>Node.js</li>
+          <li>Python</li><li>PHP</li><li>MySQL</li><li>PostgreSQL</li>
+          <li>APIs REST</li><li>Docker</li><li>Automações</li><li>Inteligência Artificial</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ================= SERVIÇOS ================= -->
+    <section id="servicos">
+      <div class="container">
+        <div class="secao-cabecalho revelar">
+          <span class="rotulo">Serviços</span>
+          <h2>Como posso ajudar o seu negócio</h2>
+          <p>Da ideia ao sistema publicado: soluções completas, construídas sob medida para cada desafio.</p>
+        </div>
+
+        <div class="grade grade-4">
+          <article class="card revelar">
+            <div class="card-icone">
+              <svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+            </div>
+            <h3>Sistemas sob medida</h3>
+            <p>Plataformas web completas para gestão, controle e operação do dia a dia — feitas para o seu processo, não o contrário.</p>
+          </article>
+
+          <article class="card revelar">
+            <div class="card-icone">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3>Sites e landing pages</h3>
+            <p>Páginas rápidas, responsivas e pensadas para converter — presença profissional para a sua marca na internet.</p>
+          </article>
+
+          <article class="card revelar">
+            <div class="card-icone">
+              <svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>Automações e integrações</h3>
+            <p>Bots, APIs e integrações entre sistemas — inclusive WhatsApp — para eliminar tarefas repetitivas e ganhar tempo.</p>
+          </article>
+
+          <article class="card revelar">
+            <div class="card-icone">
+              <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 22c5.5-2 9-6.5 9-12V5l-9-3-9 3v5c0 5.5 3.5 10 9 12z"/></svg>
+            </div>
+            <h3>Consultoria e suporte</h3>
+            <p>Acompanhamento técnico, melhorias contínuas e suporte próximo para manter tudo funcionando com segurança.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SISTEMAS ================= -->
+    <section id="sistemas" class="secao-alt">
+      <div class="container">
+        <div class="secao-cabecalho revelar">
+          <span class="rotulo">Sistemas</span>
+          <h2>Plataformas em produção</h2>
+          <p>Sistemas prontos para uso. Clique em <strong>Acessar</strong> para entrar em cada plataforma.</p>
+        </div>
+
+        <div class="grade grade-3">
+          <!-- ============================================================
+               EDITE AQUI → cada card abaixo é um sistema seu.
+               Troque: o nome, o endereço (href do botão), a descrição,
+               os recursos da lista e o selo de status.
+               Selos: selo-on | selo-dev | selo-soon
+               ============================================================ -->
+          <article class="card-sistema revelar">
+            <div class="janela-topo">
+              <span class="ponto"></span><span class="ponto"></span><span class="ponto"></span>
+              <span class="janela-url">sistema1.seudominio.com.br</span>
+            </div>
+            <div class="card-sistema-corpo">
+              <div class="card-sistema-cabecalho">
+                <h3>Sistema Um</h3>
+                <span class="selo selo-on">Em produção</span>
+              </div>
+              <p>Descreva o sistema em uma frase: qual problema ele resolve e para quem.</p>
+              <ul class="lista-check">
+                <li>Principal recurso do sistema</li>
+                <li>Outro recurso importante</li>
+                <li>Mais um diferencial</li>
+              </ul>
+              <a class="btn btn-primario btn-largo" href="https://sistema1.seudominio.com.br" target="_blank" rel="noopener">
+                Acessar sistema
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="card-sistema revelar">
+            <div class="janela-topo">
+              <span class="ponto"></span><span class="ponto"></span><span class="ponto"></span>
+              <span class="janela-url">sistema2.seudominio.com.br</span>
+            </div>
+            <div class="card-sistema-corpo">
+              <div class="card-sistema-cabecalho">
+                <h3>Sistema Dois</h3>
+                <span class="selo selo-on">Em produção</span>
+              </div>
+              <p>Descreva o sistema em uma frase: qual problema ele resolve e para quem.</p>
+              <ul class="lista-check">
+                <li>Principal recurso do sistema</li>
+                <li>Outro recurso importante</li>
+                <li>Mais um diferencial</li>
+              </ul>
+              <a class="btn btn-primario btn-largo" href="https://sistema2.seudominio.com.br" target="_blank" rel="noopener">
+                Acessar sistema
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="card-sistema revelar">
+            <div class="janela-topo">
+              <span class="ponto"></span><span class="ponto"></span><span class="ponto"></span>
+              <span class="janela-url">em breve…</span>
+            </div>
+            <div class="card-sistema-corpo">
+              <div class="card-sistema-cabecalho">
+                <h3>Próximo sistema</h3>
+                <span class="selo selo-dev">Em desenvolvimento</span>
+              </div>
+              <p>Um novo sistema está sendo construído. Descreva aqui o que vem por aí.</p>
+              <ul class="lista-check">
+                <li>O que ele vai fazer</li>
+                <li>Para quem ele é</li>
+                <li>Previsão de lançamento</li>
+              </ul>
+              <a class="btn btn-fantasma btn-largo" href="#contato">
+                Quero saber mais
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJETOS ================= -->
+    <section id="projetos">
+      <div class="container">
+        <div class="secao-cabecalho revelar">
+          <span class="rotulo">Projetos</span>
+          <h2>Projetos em destaque</h2>
+          <p>Uma seleção de trabalhos desenvolvidos com foco em qualidade, desempenho e experiência de uso.</p>
+        </div>
+
+        <div class="grade grade-3">
+          <!-- EDITE AQUI → seus projetos: nome, descrição, tags e link (opcional) -->
+          <article class="card card-projeto revelar">
+            <div class="card-icone">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>Projeto Alpha</h3>
+            <p>Descreva o projeto: o que foi construído, o desafio enfrentado e o resultado alcançado.</p>
+            <div class="tags">
+              <span class="tag">Web</span><span class="tag">API</span><span class="tag">Painel</span>
+            </div>
+          </article>
+
+          <article class="card card-projeto revelar">
+            <div class="card-icone">
+              <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3>Projeto Beta</h3>
+            <p>Descreva o projeto: o que foi construído, o desafio enfrentado e o resultado alcançado.</p>
+            <div class="tags">
+              <span class="tag">Mobile</span><span class="tag">Automação</span>
+            </div>
+          </article>
+
+          <article class="card card-projeto revelar">
+            <div class="card-icone">
+              <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.4-1.2 4.5-3 5.7V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.3C6.2 13.5 5 11.4 5 9a7 7 0 0 1 7-7zM9 21h6"/></svg>
+            </div>
+            <h3>Projeto Gamma</h3>
+            <p>Descreva o projeto: o que foi construído, o desafio enfrentado e o resultado alcançado.</p>
+            <div class="tags">
+              <span class="tag">IA</span><span class="tag">Integração</span><span class="tag">Bot</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MÉTODO ================= -->
+    <section id="metodo" class="secao-alt">
+      <div class="container">
+        <div class="secao-cabecalho revelar">
+          <span class="rotulo">Método</span>
+          <h2>Como um projeto acontece</h2>
+          <p>Um processo claro e transparente, do primeiro contato à entrega — e além dela.</p>
+        </div>
+
+        <ol class="passos">
+          <li class="passo revelar">
+            <span class="passo-num">01</span>
+            <h3>Descoberta</h3>
+            <p>Conversamos para entender o problema, o contexto e o que o sistema precisa resolver.</p>
+          </li>
+          <li class="passo revelar">
+            <span class="passo-num">02</span>
+            <h3>Planejamento</h3>
+            <p>Definimos escopo, prazo e tecnologia. Você sabe exatamente o que será entregue.</p>
+          </li>
+          <li class="passo revelar">
+            <span class="passo-num">03</span>
+            <h3>Desenvolvimento</h3>
+            <p>Construção com entregas frequentes — você acompanha a evolução de perto.</p>
+          </li>
+          <li class="passo revelar">
+            <span class="passo-num">04</span>
+            <h3>Entrega e evolução</h3>
+            <p>Publicação, treinamento e suporte contínuo, com melhorias constantes.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= SOBRE ================= -->
+    <section id="sobre">
+      <div class="container sobre-grid">
+        <div class="sobre-texto revelar">
+          <span class="rotulo">Sobre</span>
+          <h2>Tecnologia com propósito</h2>
+          <!-- EDITE AQUI → escreva sobre você / sua empresa -->
+          <p>
+            <strong>Este é o ponto central de tudo o que eu desenvolvo.</strong>
+            Aqui você encontra os sistemas em produção, os projetos entregues
+            e o que está sendo construído agora.
+          </p>
+          <p>
+            Cada solução nasce de um problema real e é desenvolvida com atenção
+            à qualidade, à segurança e à experiência de quem usa no dia a dia.
+            Nada de complexidade desnecessária: tecnologia que funciona e gera resultado.
+          </p>
+          <a href="#contato" class="btn btn-primario">
+            Vamos conversar
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="valores">
+          <div class="valor revelar">
+            <div class="valor-icone">
+              <svg viewBox="0 0 24 24"><path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"/><path d="M8.2 13.9 7 23l5-3 5 3-1.2-9.1"/></svg>
+            </div>
+            <b>Qualidade técnica</b>
+            <small>Código bem construído, testado e preparado para crescer junto com o negócio.</small>
+          </div>
+          <div class="valor revelar">
+            <div class="valor-icone">
+              <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <b>Transparência</b>
+            <small>Comunicação clara e direta em todas as etapas — sem surpresas.</small>
+          </div>
+          <div class="valor revelar">
+            <div class="valor-icone">
+              <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <b>Segurança</b>
+            <small>Dados protegidos e boas práticas aplicadas do início ao fim.</small>
+          </div>
+          <div class="valor revelar">
+            <div class="valor-icone">
+              <svg viewBox="0 0 24 24"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
+            </div>
+            <b>Evolução constante</b>
+            <small>Sistemas vivos, que recebem melhorias e novidades com frequência.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section id="contato" class="secao-alt">
+      <div class="container">
+        <div class="secao-cabecalho revelar">
+          <span class="rotulo">Contato</span>
+          <h2>Vamos conversar?</h2>
+          <p>Quer conhecer um sistema, tirar uma dúvida ou propor um projeto? Me chame por aqui.</p>
+        </div>
+
+        <div class="contato-grid">
+          <div class="contato-info revelar">
+            <a class="info-item" data-whatsapp target="_blank" rel="noopener" href="#">
+              <div class="info-icone">
+                <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </div>
+              <div>
+                <b>WhatsApp</b>
+                <small>Resposta rápida em horário comercial</small>
+              </div>
+            </a>
+
+            <a class="info-item" data-email href="#">
+              <div class="info-icone">
+                <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              </div>
+              <div>
+                <b>E-mail</b>
+                <small id="email-visivel">contato@seudominio.com.br</small>
+              </div>
+            </a>
+
+            <div class="info-item">
+              <div class="info-icone">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <b>Localização</b>
+                <!-- EDITE AQUI → sua cidade/UF -->
+                <small>Brasil · atendimento remoto</small>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icone">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <div>
+                <b>Horário</b>
+                <small>Segunda a sexta · 9h às 18h</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- O formulário monta a mensagem e abre o seu WhatsApp — sem precisar de servidor -->
+          <form class="contato-form revelar" id="form-contato">
+            <div class="form-linha">
+              <div class="campo">
+                <label for="f-nome">Nome</label>
+                <input type="text" id="f-nome" name="nome" placeholder="Seu nome" required>
+              </div>
+              <div class="campo">
+                <label for="f-email">E-mail</label>
+                <input type="email" id="f-email" name="email" placeholder="voce@email.com" required>
+              </div>
+            </div>
+            <div class="campo">
+              <label for="f-assunto">Assunto</label>
+              <select id="f-assunto" name="assunto">
+                <option>Quero um sistema sob medida</option>
+                <option>Quero um site / landing page</option>
+                <option>Automação ou integração</option>
+                <option>Suporte / dúvida sobre um sistema</option>
+                <option>Outro assunto</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="f-msg">Mensagem</label>
+              <textarea id="f-msg" name="mensagem" rows="5" placeholder="Conte um pouco sobre o que você precisa…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primario btn-largo">
+              Enviar pelo WhatsApp
+              <svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+            <small class="form-nota">Ao enviar, a conversa abre direto no WhatsApp com a sua mensagem pronta.</small>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-marca">
+        <a href="#inicio" class="marca">
+          <img src="assets/logo.png" alt="Logo" width="38" height="38">
+          <span class="marca-nome">PC&nbsp;<em>Hub</em></span>
+        </a>
+        <p>Porta de entrada dos meus sistemas e projetos. Tecnologia sob medida, com qualidade e propósito.</p>
+        <!-- EDITE AQUI → seus perfis (apague os que não usar) -->
+        <div class="redes">
+          <a href="https://github.com/seuusuario" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/seuusuario" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/seuusuario" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-label="Links de navegação">
+        <b>Navegação</b>
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#metodo">Método</a>
+        <a href="#sobre">Sobre</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Links dos sistemas">
+        <b>Sistemas</b>
+        <!-- EDITE AQUI → mesmos links dos cards de sistemas -->
+        <a href="https://sistema1.seudominio.com.br" target="_blank" rel="noopener">Sistema Um</a>
+        <a href="https://sistema2.seudominio.com.br" target="_blank" rel="noopener">Sistema Dois</a>
+        <a href="#contato">Próximo sistema</a>
+      </nav>
+
+      <div class="footer-col">
+        <b>Contato</b>
+        <a data-whatsapp target="_blank" rel="noopener" href="#">WhatsApp</a>
+        <a data-email href="#">E-mail</a>
+        <span>Brasil · atendimento remoto</span>
+      </div>
+    </div>
+
+    <div class="container footer-base">
+      <!-- EDITE AQUI → seu nome/marca -->
+      <small>© <span id="ano"></span> PC Hub. Todos os direitos reservados.</small>
+      <small>Sistemas &amp; Projetos</small>
+    </div>
+  </footer>
+
+  <!-- Botões flutuantes -->
+  <a data-whatsapp href="#" target="_blank" rel="noopener" class="zap-flutuante" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <button class="topo-btn" id="topo-btn" aria-label="Voltar ao topo">
+    <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
