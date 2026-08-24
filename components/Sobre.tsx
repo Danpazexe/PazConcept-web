@@ -77,8 +77,8 @@ export default function Sobre() {
             <strong className="font-semibold text-tinta">
               A PazConcept é o ponto central de tudo o que eu desenvolvo.
             </strong>{" "}
-            Aqui você encontra os sistemas em produção, os repositórios abertos
-            e o que está sendo construído agora.
+            Aqui você encontra os sistemas em produção, os projetos em
+            desenvolvimento e o design que criamos para dar vida a outras marcas.
           </p>
           <p className="mt-4 text-suave">
             Cada solução nasce de um problema real e é desenvolvida com atenção

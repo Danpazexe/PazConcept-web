@@ -52,6 +52,34 @@ const SERVICOS = [
     icone_cor: "bg-emerald-50 text-emerald-600",
     barra: "bg-emerald-500",
   },
+  {
+    titulo: "Design gráfico",
+    texto:
+      "Logos, identidade visual e artes profissionais que dão cara e personalidade à sua marca.",
+    icone: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m12 19 7-7 3 3-7 7-3-3z" />
+        <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+        <path d="m2 2 7.586 7.586" />
+        <circle cx="11" cy="11" r="2" />
+      </svg>
+    ),
+    icone_cor: "bg-pink-50 text-pink-600",
+    barra: "bg-pink-500",
+  },
+  {
+    titulo: "Comunicação e social media",
+    texto:
+      "Artes para redes sociais e materiais de divulgação que comunicam a sua mensagem com clareza.",
+    icone: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m3 11 18-5v12L3 14v-3z" />
+        <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+      </svg>
+    ),
+    icone_cor: "bg-cyan-50 text-cyan-600",
+    barra: "bg-cyan-500",
+  },
 ];
 
 export default function Servicos() {
@@ -63,7 +91,7 @@ export default function Servicos() {
           medida para cada desafio.
         </SecaoCabecalho>
 
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICOS.map((s, i) => (
             <Reveal key={s.titulo} delay={i * 0.08}>
               <article className="group relative h-full overflow-hidden rounded-2xl border border-linha bg-white p-7 shadow-[0_8px_28px_rgba(29,18,51,0.05)] transition-all hover:-translate-y-1.5 hover:shadow-[0_18px_44px_rgba(29,18,51,0.1)]">

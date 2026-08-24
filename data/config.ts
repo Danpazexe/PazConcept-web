@@ -8,9 +8,9 @@ export const SITE = {
   marca: "PazConcept", // nome do site / marca
   nome: "DanielPaz", // seu nome (aparece na seção Sobre)
   usuario: "Danpazexe", // usuário do GitHub — os repositórios são listados daqui
-  titulo: "PazConcept — Sistemas & Projetos",
+  titulo: "PazConcept — Sistemas & Design",
   descricao:
-    "PazConcept é a porta de entrada dos sistemas e projetos de DanielPaz. Desenvolvimento de sistemas, apps e automações — acompanhe os repositórios e acesse as plataformas.",
+    "PazConcept: desenvolvimento de sistemas, apps e automações + design gráfico e comunicação. Conheça os projetos, acesse as plataformas e veja as artes no Instagram @pazconcept.",
 
   // Número com DDI + DDD, apenas dígitos
   whatsapp: "5583986595074",
@@ -19,8 +19,8 @@ export const SITE = {
 
   redes: {
     github: "https://github.com/Danpazexe",
-    linkedin: "https://www.linkedin.com/in/seuusuario", // EDITE ou deixe "" para esconder
-    instagram: "", // EDITE ou deixe "" para esconder
+    linkedin: "", // EDITE ou deixe "" para esconder
+    instagram: "https://www.instagram.com/pazconcept",
   },
 
   // Repositórios que NÃO devem aparecer na lista automática

@@ -82,7 +82,7 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-roxo opacity-60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-roxo" />
               </span>
-              Sistemas &amp; Projetos
+              Sistemas · Design · Comunicação
             </Rotulo>
           </motion.div>
 
@@ -98,8 +98,8 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
             variants={entrada}
             className="mx-auto mt-6 max-w-xl text-lg text-suave lg:mx-0"
           >
-            Tudo o que eu construo, em um só lugar: plataformas em produção,
-            repositórios abertos no GitHub e o que está sendo desenvolvido agora.
+            Tudo o que a PazConcept cria, em um só lugar: sistemas em produção,
+            projetos em desenvolvimento e design que dá vida às marcas.
           </motion.p>
 
           <motion.div

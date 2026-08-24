@@ -17,7 +17,8 @@ export default function Footer() {
           </a>
           <p className="mt-5 max-w-xs text-sm text-[#A895CC]">
             PazConcept é a porta de entrada dos sistemas e projetos de{" "}
-            {SITE.nome}. Tecnologia sob medida, com qualidade e propósito.
+            {SITE.nome}. Tecnologia e design sob medida, com qualidade e
+            propósito.
           </p>
           <div className="mt-6 flex gap-3">
             {[

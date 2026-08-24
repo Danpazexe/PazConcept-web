@@ -5,6 +5,7 @@ import Marquee from "@/components/Marquee";
 import Servicos from "@/components/Servicos";
 import Sistemas from "@/components/Sistemas";
 import Futuros from "@/components/Futuros";
+import Design from "@/components/Design";
 import Sobre from "@/components/Sobre";
 import Contato from "@/components/Contato";
 import Footer from "@/components/Footer";
@@ -37,6 +38,7 @@ export default async function Home() {
         <Servicos />
         <Sistemas />
         <Futuros />
+        <Design />
         <Sobre />
         <Contato />
       </main>
