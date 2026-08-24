@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { animate, motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Rotulo } from "./Secao";
+import Estrelas from "./Estrelas";
 
 type Metrica = { valor: number; sufixo: string; rotulo: string };
 
@@ -68,6 +69,11 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
         <div className="grade-fundo absolute inset-0" />
       </motion.div>
 
+      {/* Universo de estrelas interativo (reage ao mouse) */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <Estrelas />
+      </div>
+
       <div className="relative mx-auto grid w-[min(1160px,92%)] items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
         <motion.div
           initial="hidden"
@@ -88,7 +94,7 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
 
           <motion.h1
             variants={entrada}
-            className="mt-6 font-heading text-4xl font-extrabold tracking-tight text-tinta sm:text-5xl xl:text-[3.4rem] xl:leading-[1.15]"
+            className="mt-6 font-display text-[2.5rem] leading-[1.08] font-extrabold tracking-tight text-tinta sm:text-5xl sm:leading-[1.08] xl:text-[4.1rem] xl:leading-[1.05]"
           >
             A porta de entrada para os meus{" "}
             <span className="texto-grad">sistemas e projetos</span>
@@ -129,10 +135,10 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
           >
             {metricas.map((m) => (
               <div key={m.rotulo}>
-                <div className="font-heading text-3xl font-bold text-tinta">
+                <div className="font-display text-4xl font-bold text-tinta">
                   <Contador valor={m.valor} sufixo={m.sufixo} />
                 </div>
-                <div className="mt-1 text-sm text-suave">{m.rotulo}</div>
+                <div className="mt-1 text-[0.82rem] tracking-wide text-suave uppercase">{m.rotulo}</div>
               </div>
             ))}
           </motion.div>
@@ -159,6 +165,9 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
             priority
             className="relative animate-flutuar drop-shadow-[0_24px_50px_rgba(124,34,206,0.35)] will-change-transform"
           />
+          <span className="absolute right-2 -bottom-8 rotate-[-4deg] font-script text-[1.6rem] text-roxo/70">
+            o universo PazConcept ✦
+          </span>
         </motion.div>
       </div>
     </section>

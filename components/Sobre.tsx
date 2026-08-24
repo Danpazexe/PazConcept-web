@@ -54,7 +54,7 @@ export default function Sobre() {
       <div className="mx-auto grid w-[min(1160px,92%)] items-center gap-16 lg:grid-cols-2">
         <Reveal>
           <Rotulo>Sobre</Rotulo>
-          <h2 className="mt-5 font-heading text-3xl font-bold text-tinta md:text-4xl">
+          <h2 className="mt-5 font-display text-[2.1rem] leading-tight font-bold text-tinta md:text-[2.75rem]">
             Tecnologia com propósito
           </h2>
 

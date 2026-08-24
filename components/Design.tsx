@@ -29,9 +29,12 @@ export default function Design() {
           <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-mono text-[0.7rem] font-semibold tracking-[0.16em] text-creme uppercase">
             Design &amp; Comunicação
           </span>
-          <h2 className="mt-5 font-heading text-3xl font-bold text-creme md:text-4xl">
+          <h2 className="mt-5 font-display text-[2.1rem] leading-tight font-bold text-creme md:text-[2.75rem]">
             Artes que dão vida às marcas
           </h2>
+          <p className="mt-2 rotate-[-1.5deg] font-script text-[1.7rem] text-roxo-claro">
+            do feed direto para o seu projeto ✦
+          </p>
           <p className="mt-4 max-w-xl text-lg text-[#A895CC]">
             Além de sistemas, a PazConcept cria design gráfico e comunicação
             visual: identidade, artes para redes sociais e materiais de

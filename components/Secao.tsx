@@ -21,7 +21,7 @@ export function SecaoCabecalho({
   return (
     <Reveal className="mb-14 max-w-2xl">
       <Rotulo>{rotulo}</Rotulo>
-      <h2 className="mt-5 font-heading text-3xl font-bold text-tinta md:text-4xl">
+      <h2 className="mt-5 font-display text-[2.1rem] leading-tight font-bold text-tinta md:text-[2.75rem]">
         {titulo}
       </h2>
       {children && <p className="mt-4 text-lg text-suave">{children}</p>}
