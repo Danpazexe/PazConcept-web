@@ -37,7 +37,7 @@ export const SITE = {
 export type Destaque = {
   nome: string;
   descricao: string;
-  status: "Em produção" | "Em desenvolvimento" | "Em breve";
+  status: "Em produção" | "Em teste" | "Em desenvolvimento" | "Em breve";
   url: string; // link de acesso ao sistema ("" = ainda sem link público)
   repo?: string; // link do repositório (opcional)
   icone?: string; // ícone do sistema (arquivo em /public)
@@ -76,7 +76,7 @@ export const DESTAQUES: Destaque[] = [
     nome: "DietSpace",
     descricao:
       "Sistema para consultório de nutrição: da anamnese ao plano na mão da paciente — avaliação completa, plano alimentar, agenda com lembretes e app da paciente.",
-    status: "Em produção",
+    status: "Em teste",
     url: "https://www.dietspace.com.br",
     icone: "/dietspace-icon.png",
     recursos: [

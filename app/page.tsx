@@ -19,9 +19,11 @@ export default async function Home() {
   const metricas = [
     { valor: repos.length + DESTAQUES.length, sufixo: "+", rotulo: "Projetos criados" },
     {
-      valor: DESTAQUES.filter((d) => d.status === "Em produção").length,
+      valor: DESTAQUES.filter(
+        (d) => d.status === "Em produção" || d.status === "Em teste"
+      ).length,
       sufixo: "",
-      rotulo: "Sistema em produção",
+      rotulo: "Sistema no ar",
     },
     { valor: 100, sufixo: "%", rotulo: "Dedicação em cada entrega" },
   ];

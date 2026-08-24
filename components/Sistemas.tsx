@@ -5,6 +5,7 @@ import { DESTAQUES } from "@/data/config";
 
 const SELOS: Record<string, string> = {
   "Em produção": "border-emerald-200 bg-emerald-50 text-emerald-600",
+  "Em teste": "border-blue-200 bg-blue-50 text-blue-600",
   "Em desenvolvimento": "border-amber-200 bg-amber-50 text-amber-600",
   "Em breve": "border-roxo/25 bg-roxo-suave text-roxo",
 };
