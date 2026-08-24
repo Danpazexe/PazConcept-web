@@ -96,7 +96,7 @@ export default function Sistemas() {
                     </div>
                     <div className="flex min-h-56 flex-1 flex-col items-center justify-center gap-4 bg-gradient-to-br from-roxo-claro to-roxo-escuro p-8">
                       <Image
-                        src={d.icone ?? "/variacoes/logo-branca.png"}
+                        src={d.icone ?? "/logo-pc-branca.png"}
                         alt={`Ícone do ${d.nome}`}
                         width={116}
                         height={116}

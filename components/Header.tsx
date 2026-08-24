@@ -35,7 +35,7 @@ export default function Header() {
     >
       <div className="mx-auto flex h-20 w-[min(1160px,92%)] items-center justify-between">
         <a href="#inicio" className="flex items-center gap-3">
-          <Image src="/logo.png" alt="Logo" width={42} height={42} priority />
+          <Image src="/logo-pc.png" alt="Logo" width={42} height={42} priority />
           <span className="font-heading text-lg font-bold text-tinta">
             Daniel<em className="not-italic text-roxo">Paz</em>
           </span>

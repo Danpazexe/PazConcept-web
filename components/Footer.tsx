@@ -10,7 +10,7 @@ export default function Footer() {
         <div>
           <a href="#inicio" className="flex items-center gap-3">
             {/* Variação em branco da logo (P&B) sobre o fundo roxo */}
-            <Image src="/variacoes/logo-branca.png" alt="Logo" width={40} height={40} />
+            <Image src="/logo-pc-branca.png" alt="Logo" width={40} height={40} />
             <span className="font-heading text-lg font-bold text-creme">
               Daniel<em className="not-italic text-roxo-claro">Paz</em>
             </span>

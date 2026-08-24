@@ -131,7 +131,7 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
           </div>
           <div className="absolute h-72 w-72 rounded-full bg-roxo/15 blur-3xl" />
           <Image
-            src="/logo.png"
+            src="/logo-pc.png"
             alt=""
             width={330}
             height={330}

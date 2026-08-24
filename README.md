@@ -28,7 +28,7 @@ Outros pontos editáveis estão marcados com `EDITE AQUI` no código.
 
 ## Logo
 
-A logo original está em `public/logo.png`, com variações (incluindo preto &
+A logo original está em `public/logo-pc.png`, com variações (incluindo preto &
 branco) em `public/variacoes/`.
 
 ## Deploy
