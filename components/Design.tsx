@@ -57,33 +57,35 @@ export default function Design() {
           </div>
         </Reveal>
 
-        {/* Mini mosaico ilustrativo de "posts" */}
-        <Reveal delay={0.15} className="hidden lg:block">
-          <div className="grid grid-cols-3 gap-3" aria-hidden>
+        {/* Galeria com artes reais do @pazconcept
+            EDITE AQUI → troque os arquivos (estão em public/artes) */}
+        <Reveal delay={0.15}>
+          <div className="grid grid-cols-3 gap-3">
             {[
-              "from-roxo-claro to-roxo-escuro",
-              "from-[#DD2A7B] to-[#8134AF]",
-              "from-[#F58529] to-[#DD2A7B]",
-              "from-[#8134AF] to-[#2A1052]",
-              "from-roxo to-[#DD2A7B]",
-              "from-[#5B189E] to-roxo-claro",
-            ].map((g, i) => (
-              <div
-                key={i}
-                className={`aspect-square rounded-2xl bg-gradient-to-br ${g} border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-transform hover:scale-105 ${
+              "/artes/arte-03.jpg",
+              "/artes/arte-01.jpg",
+              "/artes/arte-04.jpg",
+              "/artes/arte-02.jpg",
+              "/artes/arte-10.jpg",
+              "/artes/arte-05.jpg",
+            ].map((src, i) => (
+              <a
+                key={src}
+                href={SITE.redes.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`overflow-hidden rounded-2xl border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:z-10 hover:scale-105 ${
                   i % 2 === 1 ? "translate-y-3" : ""
                 }`}
               >
-                <div className="flex h-full items-center justify-center">
-                  <Image
-                    src="/logo-pc-branca.png"
-                    alt=""
-                    width={44}
-                    height={44}
-                    className="opacity-70"
-                  />
-                </div>
-              </div>
+                <Image
+                  src={src}
+                  alt={`Arte do portfólio PazConcept ${i + 1}`}
+                  width={334}
+                  height={449}
+                  className="h-full w-full object-cover"
+                />
+              </a>
             ))}
           </div>
         </Reveal>
