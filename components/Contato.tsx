@@ -119,13 +119,30 @@ export default function Contato() {
 
               <label className="mt-5 block">
                 <span className="mb-2 block text-sm font-semibold text-tinta">Assunto</span>
-                <select name="assunto" className={campo}>
-                  <option>Quero um sistema sob medida</option>
-                  <option>Quero um site / landing page</option>
-                  <option>Automação ou integração</option>
-                  <option>Dúvida sobre um sistema</option>
-                  <option>Outro assunto</option>
-                </select>
+                <div className="relative">
+                  <select
+                    name="assunto"
+                    className={`${campo} cursor-pointer appearance-none pr-11`}
+                  >
+                    <option>Quero um sistema sob medida</option>
+                    <option>Quero um site / landing page</option>
+                    <option>Design gráfico / artes para redes sociais</option>
+                    <option>Automação ou integração</option>
+                    <option>Dúvida sobre um sistema</option>
+                    <option>Outro assunto</option>
+                  </select>
+                  <svg
+                    className="pointer-events-none absolute top-1/2 right-4 h-4 w-4 -translate-y-1/2 text-roxo"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </div>
               </label>
 
               <label className="mt-5 block">
