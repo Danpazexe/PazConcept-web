@@ -20,7 +20,7 @@ export default function Marquee() {
       aria-hidden
       className="overflow-hidden border-y border-creme-escuro bg-creme py-5 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]"
     >
-      <div className="flex w-max animate-marquee gap-3.5 hover:[animation-play-state:paused]">
+      <div className="flex w-max animate-marquee gap-3.5 will-change-transform hover:[animation-play-state:paused]">
         {[...TECNOLOGIAS, ...TECNOLOGIAS].map((t, i) => (
           <span
             key={i}

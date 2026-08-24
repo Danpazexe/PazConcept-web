@@ -55,11 +55,16 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
       id="inicio"
       className="relative flex min-h-svh items-center overflow-hidden pt-32 pb-20"
     >
-      {/* Fundo: brilhos suaves + grade (sobe devagar no parallax) */}
-      <motion.div aria-hidden style={{ y: fundoY }} className="absolute inset-0">
-        <div className="absolute -top-40 -right-32 h-[560px] w-[560px] rounded-full bg-roxo/12 blur-3xl" />
-        <div className="absolute -bottom-40 -left-32 h-[460px] w-[460px] rounded-full bg-roxo-claro/10 blur-3xl" />
-        <div className="absolute top-1/3 left-1/2 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-creme blur-3xl opacity-60" />
+      {/* Fundo: brilhos suaves + grade (sobe devagar no parallax).
+          Gradientes radiais no lugar de blur() — mesmo visual, muito mais leve */}
+      <motion.div
+        aria-hidden
+        style={{ y: fundoY }}
+        className="absolute inset-0 will-change-transform"
+      >
+        <div className="absolute -top-48 -right-40 h-[680px] w-[680px] bg-[radial-gradient(circle,rgba(124,34,206,0.14),transparent_62%)]" />
+        <div className="absolute -bottom-48 -left-44 h-[580px] w-[580px] bg-[radial-gradient(circle,rgba(157,78,221,0.12),transparent_62%)]" />
+        <div className="absolute top-1/4 left-1/2 h-[420px] w-[420px] -translate-x-1/2 bg-[radial-gradient(circle,rgba(245,239,225,0.7),transparent_60%)]" />
         <div className="grade-fundo absolute inset-0" />
       </motion.div>
 
@@ -69,7 +74,7 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
           animate="show"
           transition={{ staggerChildren: 0.12 }}
           style={{ y: textoY, opacity: textoOpacidade }}
-          className="text-center lg:text-left"
+          className="text-center will-change-transform lg:text-left"
         >
           <motion.div variants={entrada}>
             <Rotulo>
@@ -136,23 +141,23 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
         {/* Logo real com anéis orbitando (desce e some no parallax) */}
         <motion.div
           style={{ y: logoY, scale: logoEscala, opacity: logoOpacidade }}
-          className="relative mx-auto hidden items-center justify-center lg:flex"
+          className="relative mx-auto hidden items-center justify-center will-change-transform lg:flex"
           aria-hidden
         >
-          <div className="absolute h-[420px] w-[420px] animate-girar rounded-full border border-roxo/15">
+          <div className="absolute h-[420px] w-[420px] animate-girar rounded-full border border-roxo/15 will-change-transform">
             <span className="absolute -top-1 left-1/2 h-2.5 w-2.5 rounded-full bg-roxo-claro shadow-[0_0_14px_3px_rgba(157,78,221,0.5)]" />
           </div>
-          <div className="absolute h-[530px] w-[530px] animate-girar-lento rounded-full border border-dashed border-roxo/10">
+          <div className="absolute h-[530px] w-[530px] animate-girar-lento rounded-full border border-dashed border-roxo/10 will-change-transform">
             <span className="absolute -top-1 left-1/2 h-2 w-2 rounded-full bg-roxo/60" />
           </div>
-          <div className="absolute h-72 w-72 rounded-full bg-roxo/15 blur-3xl" />
+          <div className="absolute h-[380px] w-[380px] bg-[radial-gradient(circle,rgba(124,34,206,0.18),transparent_62%)]" />
           <Image
             src="/logo-pc.png"
             alt=""
             width={330}
             height={330}
             priority
-            className="relative animate-flutuar drop-shadow-[0_24px_50px_rgba(124,34,206,0.35)]"
+            className="relative animate-flutuar drop-shadow-[0_24px_50px_rgba(124,34,206,0.35)] will-change-transform"
           />
         </motion.div>
       </div>

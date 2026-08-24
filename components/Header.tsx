@@ -27,7 +27,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 backdrop-blur-xl transition-all ${
+      className={`fixed inset-x-0 top-0 z-50 backdrop-blur-md transition-all ${
         rolado
           ? "border-b border-linha bg-white/90 shadow-[0_4px_24px_rgba(29,18,51,0.05)]"
           : "border-b border-transparent bg-white/70"

@@ -15,7 +15,7 @@ export const SITE = {
   // Número com DDI + DDD, apenas dígitos
   whatsapp: "5583986595074",
   mensagemPadrao: "Olá, Daniel! Vim pelo site e quero conversar.",
-  email: "contato@seudominio.com.br",
+  email: "conceptpaz@gmail.com",
 
   redes: {
     github: "https://github.com/Danpazexe",

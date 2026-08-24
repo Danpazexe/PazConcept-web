@@ -7,3 +7,4 @@ node_modules/
 Sem título.png
 *.tsbuildinfo
 next-env.d.ts
+.vercel
