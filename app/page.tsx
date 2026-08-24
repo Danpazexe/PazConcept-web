@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import ScrollProgress from "@/components/ScrollProgress";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Servicos from "@/components/Servicos";
@@ -27,6 +28,7 @@ export default async function Home() {
 
   return (
     <>
+      <ScrollProgress />
       <Header />
       <main>
         <Hero metricas={metricas} />

@@ -12,12 +12,12 @@ export default function Footer() {
             {/* Variação em branco da logo (P&B) sobre o fundo roxo */}
             <Image src="/logo-pc-branca.png" alt="Logo" width={40} height={40} />
             <span className="font-heading text-lg font-bold text-creme">
-              Daniel<em className="not-italic text-roxo-claro">Paz</em>
+              Paz<em className="not-italic text-roxo-claro">Concept</em>
             </span>
           </a>
           <p className="mt-5 max-w-xs text-sm text-[#A895CC]">
-            Porta de entrada dos meus sistemas e projetos. Tecnologia sob
-            medida, com qualidade e propósito.
+            PazConcept é a porta de entrada dos sistemas e projetos de{" "}
+            {SITE.nome}. Tecnologia sob medida, com qualidade e propósito.
           </p>
           <div className="mt-6 flex gap-3">
             {[
@@ -76,7 +76,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex w-[min(1160px,92%)] flex-col items-center justify-between gap-2 py-6 text-xs text-[#A895CC] sm:flex-row">
-          <span>© {ano} {SITE.nome}. Todos os direitos reservados.</span>
+          <span>© {ano} {SITE.marca} · {SITE.nome}. Todos os direitos reservados.</span>
           <span className="font-mono">feito com Next.js · Tailwind · Framer Motion</span>
         </div>
       </div>

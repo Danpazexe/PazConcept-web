@@ -37,7 +37,7 @@ export default function Header() {
         <a href="#inicio" className="flex items-center gap-3">
           <Image src="/logo-pc.png" alt="Logo" width={42} height={42} priority />
           <span className="font-heading text-lg font-bold text-tinta">
-            Daniel<em className="not-italic text-roxo">Paz</em>
+            Paz<em className="not-italic text-roxo">Concept</em>
           </span>
         </a>
 

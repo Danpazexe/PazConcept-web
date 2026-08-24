@@ -5,11 +5,12 @@
    ============================================================ */
 
 export const SITE = {
-  nome: "DanielPaz",
+  marca: "PazConcept", // nome do site / marca
+  nome: "DanielPaz", // seu nome (aparece na seção Sobre)
   usuario: "Danpazexe", // usuário do GitHub — os repositórios são listados daqui
-  titulo: "DanielPaz — Sistemas & Projetos",
+  titulo: "PazConcept — Sistemas & Projetos",
   descricao:
-    "Porta de entrada dos sistemas e projetos de DanielPaz. Desenvolvimento de sistemas, apps e automações — acompanhe os repositórios e acesse as plataformas.",
+    "PazConcept é a porta de entrada dos sistemas e projetos de DanielPaz. Desenvolvimento de sistemas, apps e automações — acompanhe os repositórios e acesse as plataformas.",
 
   // Número com DDI + DDD, apenas dígitos. Ex.: 5583912345678
   whatsapp: "5583999999999",

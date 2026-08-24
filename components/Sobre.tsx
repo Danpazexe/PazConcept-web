@@ -75,7 +75,7 @@ export default function Sobre() {
           {/* EDITE AQUI → escreva sobre você */}
           <p className="mt-6 text-suave">
             <strong className="font-semibold text-tinta">
-              Este é o ponto central de tudo o que eu desenvolvo.
+              A PazConcept é o ponto central de tudo o que eu desenvolvo.
             </strong>{" "}
             Aqui você encontra os sistemas em produção, os repositórios abertos
             e o que está sendo construído agora.

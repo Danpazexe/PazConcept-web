@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { animate, motion, useInView } from "framer-motion";
+import { animate, motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Rotulo } from "./Secao";
 
 type Metrica = { valor: number; sufixo: string; rotulo: string };
@@ -36,21 +36,39 @@ const entrada = {
 };
 
 export default function Hero({ metricas }: { metricas: Metrica[] }) {
+  /* Parallax: conforme a página desce, cada camada se move em velocidade diferente */
+  const secaoRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: secaoRef,
+    offset: ["start start", "end start"],
+  });
+  const fundoY = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const textoY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const textoOpacidade = useTransform(scrollYProgress, [0, 0.9], [1, 0.15]);
+  const logoY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const logoEscala = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
+  const logoOpacidade = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+
   return (
-    <section id="inicio" className="relative flex min-h-svh items-center overflow-hidden pt-32 pb-20">
-      {/* Fundo: brilhos suaves + grade */}
-      <div aria-hidden className="absolute inset-0">
+    <section
+      ref={secaoRef}
+      id="inicio"
+      className="relative flex min-h-svh items-center overflow-hidden pt-32 pb-20"
+    >
+      {/* Fundo: brilhos suaves + grade (sobe devagar no parallax) */}
+      <motion.div aria-hidden style={{ y: fundoY }} className="absolute inset-0">
         <div className="absolute -top-40 -right-32 h-[560px] w-[560px] rounded-full bg-roxo/12 blur-3xl" />
         <div className="absolute -bottom-40 -left-32 h-[460px] w-[460px] rounded-full bg-roxo-claro/10 blur-3xl" />
         <div className="absolute top-1/3 left-1/2 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-creme blur-3xl opacity-60" />
         <div className="grade-fundo absolute inset-0" />
-      </div>
+      </motion.div>
 
       <div className="relative mx-auto grid w-[min(1160px,92%)] items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
         <motion.div
           initial="hidden"
           animate="show"
           transition={{ staggerChildren: 0.12 }}
+          style={{ y: textoY, opacity: textoOpacidade }}
           className="text-center lg:text-left"
         >
           <motion.div variants={entrada}>
@@ -115,11 +133,9 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
           </motion.div>
         </motion.div>
 
-        {/* Logo real com anéis orbitando */}
+        {/* Logo real com anéis orbitando (desce e some no parallax) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          style={{ y: logoY, scale: logoEscala, opacity: logoOpacidade }}
           className="relative mx-auto hidden items-center justify-center lg:flex"
           aria-hidden
         >

@@ -1,7 +1,8 @@
-# DanielPaz — Sistemas & Projetos
+# PazConcept — Sistemas & Projetos
 
-Porta de entrada dos meus sistemas e projetos: sistemas em destaque com acesso
-direto, e a lista de repositórios carregada automaticamente do GitHub.
+PazConcept é a porta de entrada dos meus sistemas e projetos: sistemas em
+destaque com acesso direto, e a lista de repositórios carregada
+automaticamente do GitHub.
 
 **Stack:** Next.js (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion · Vercel
 
