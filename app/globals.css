@@ -21,7 +21,7 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-sora), var(--font-inter), ui-sans-serif, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", monospace;
-  --font-display: var(--font-syne), var(--font-sora), ui-sans-serif, sans-serif;
+  --font-display: var(--font-space), var(--font-sora), ui-sans-serif, sans-serif;
   --font-script: var(--font-caveat), cursive;
 
   --animate-marquee: marquee 38s linear infinite;
