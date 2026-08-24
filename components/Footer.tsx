@@ -45,7 +45,7 @@ export default function Footer() {
           <a href="#inicio" className="transition-colors hover:text-creme">Início</a>
           <a href="#servicos" className="transition-colors hover:text-creme">Serviços</a>
           <a href="#sistemas" className="transition-colors hover:text-creme">Sistemas</a>
-          <a href="#projetos" className="transition-colors hover:text-creme">Projetos</a>
+          <a href="#futuros" className="transition-colors hover:text-creme">Em breve</a>
           <a href="#sobre" className="transition-colors hover:text-creme">Sobre</a>
         </nav>
 
@@ -68,8 +68,13 @@ export default function Footer() {
               </span>
             )
           )}
-          <a href="#projetos" className="transition-colors hover:text-creme">
-            Todos os repositórios
+          <a
+            href={SITE.redes.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-creme"
+          >
+            Repositórios no GitHub
           </a>
         </div>
       </div>

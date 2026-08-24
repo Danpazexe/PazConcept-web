@@ -9,7 +9,6 @@ const LINKS = [
   { href: "#inicio", label: "Início" },
   { href: "#servicos", label: "Serviços" },
   { href: "#sistemas", label: "Sistemas" },
-  { href: "#projetos", label: "Projetos" },
   { href: "#futuros", label: "Em breve" },
   { href: "#sobre", label: "Sobre" },
 ];

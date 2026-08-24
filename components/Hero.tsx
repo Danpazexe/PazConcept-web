@@ -116,10 +116,10 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
               </svg>
             </a>
             <a
-              href="#projetos"
+              href="#futuros"
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-linha bg-white px-7 py-3.5 font-semibold text-tinta transition-all hover:-translate-y-0.5 hover:border-roxo hover:bg-roxo-suave"
             >
-              Ver repositórios
+              Projetos futuros
             </a>
           </motion.div>
 

@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Servicos from "@/components/Servicos";
 import Sistemas from "@/components/Sistemas";
-import Repos from "@/components/Repos";
 import Futuros from "@/components/Futuros";
 import Sobre from "@/components/Sobre";
 import Contato from "@/components/Contato";
@@ -37,7 +36,6 @@ export default async function Home() {
         <Marquee />
         <Servicos />
         <Sistemas />
-        <Repos repos={repos} />
         <Futuros />
         <Sobre />
         <Contato />
