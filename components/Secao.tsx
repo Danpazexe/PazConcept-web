@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 
 export function Rotulo({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-roxo/25 bg-roxo-suave px-4 py-1.5 font-mono text-[0.7rem] font-semibold tracking-[0.16em] text-roxo uppercase">
+    <span className="inline-flex max-w-full flex-wrap items-center justify-center gap-2 rounded-full border border-roxo/25 bg-roxo-suave px-4 py-1.5 text-center font-mono text-[0.62rem] font-semibold tracking-[0.1em] text-roxo uppercase sm:text-[0.7rem] sm:tracking-[0.16em]">
       {children}
     </span>
   );
