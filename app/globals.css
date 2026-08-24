@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/* ==========================================================
+   Paleta da marca (extraída da logo) + cores de apoio
+   ========================================================== */
+@theme {
+  --color-roxo: #7c22ce;
+  --color-roxo-escuro: #5b189e;
+  --color-roxo-claro: #9d4edd;
+  --color-roxo-suave: #f3eafd;
+
+  --color-tinta: #1d1233; /* títulos (quase preto arroxeado) */
+  --color-grafite: #4b4260; /* texto corrido */
+  --color-suave: #7a7090; /* texto secundário */
+  --color-linha: #e9e3f6; /* bordas */
+
+  --color-fundo-suave: #f8f6fc; /* seções alternadas */
+  --color-creme: #f5efe1; /* creme da logo */
+  --color-creme-escuro: #eadfc9;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-sora), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", monospace;
+
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-flutuar: flutuar 5.5s ease-in-out infinite;
+  --animate-girar: girar 30s linear infinite;
+  --animate-girar-lento: girar-reverso 48s linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes flutuar {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1.5deg);
+  }
+}
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes girar-reverso {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+body {
+  background: #fff;
+  color: var(--color-grafite);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(124, 34, 206, 0.2);
+  color: var(--color-tinta);
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: #f3f0fa;
+}
+::-webkit-scrollbar-thumb {
+  background: #d8cdf0;
+  border-radius: 8px;
+  border: 2px solid #f3f0fa;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-roxo-claro);
+}
+
+/* Grade sutil de fundo do hero */
+.grade-fundo {
+  background-image: linear-gradient(rgba(124, 34, 206, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 34, 206, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 38%, #000 25%, transparent 72%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 38%,
+    #000 25%,
+    transparent 72%
+  );
+}
+
+/* Texto com gradiente da marca */
+.texto-grad {
+  background: linear-gradient(92deg, #9b4dee 0%, #6118a8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
