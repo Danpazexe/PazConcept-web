@@ -73,7 +73,7 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
           A máscara deixa as estrelas discretas na área do texto
           e com brilho total na área da logo */}
       <div
-        className="pointer-events-none absolute inset-0 [-webkit-mask-image:linear-gradient(100deg,rgba(0,0,0,0.14)_0%,rgba(0,0,0,0.22)_42%,rgba(0,0,0,0.75)_66%,#000_88%)] [mask-image:linear-gradient(100deg,rgba(0,0,0,0.14)_0%,rgba(0,0,0,0.22)_42%,rgba(0,0,0,0.75)_66%,#000_88%)]"
+        className="pointer-events-none absolute inset-0 [-webkit-mask-image:linear-gradient(100deg,rgba(0,0,0,0.45)_0%,rgba(0,0,0,0.55)_45%,rgba(0,0,0,0.85)_65%,#000_85%)] [mask-image:linear-gradient(100deg,rgba(0,0,0,0.45)_0%,rgba(0,0,0,0.55)_45%,rgba(0,0,0,0.85)_65%,#000_85%)]"
         aria-hidden
       >
         <Estrelas />
