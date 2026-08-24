@@ -76,7 +76,8 @@ export default function RootLayout({
           Pular para o conteúdo
         </a>
         <Movimento>{children}</Movimento>
-        <Analytics />
+        {/* só na Vercel — evita 404 do script em ambiente local */}
+        {process.env.VERCEL && <Analytics />}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(dadosEstruturados) }}

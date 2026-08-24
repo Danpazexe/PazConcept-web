@@ -89,6 +89,7 @@ export default function Design() {
                   alt={`Arte do portfólio PazConcept ${i + 1}`}
                   width={334}
                   height={449}
+                  sizes="(min-width: 1024px) 14vw, 30vw"
                   className="h-full w-full object-cover"
                 />
               </a>

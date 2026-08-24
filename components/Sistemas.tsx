@@ -25,7 +25,7 @@ export default function Sistemas() {
               <div className="rounded-3xl bg-gradient-to-br from-roxo-claro/60 via-linha to-roxo-escuro/50 p-[1.5px] shadow-[0_22px_70px_rgba(124,34,206,0.18)]">
               <article className="grid overflow-hidden rounded-[calc(1.5rem-1.5px)] bg-white lg:grid-cols-[1.05fr_0.95fr]">
                 {/* Informações */}
-                <div className="flex flex-col p-8 sm:p-10">
+                <div className="flex min-w-0 flex-col p-8 sm:p-10">
                   {d.lancamento && (
                     <span className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-roxo-claro to-roxo-escuro px-4 py-1.5 font-mono text-[0.62rem] font-semibold tracking-[0.14em] text-white uppercase shadow-[0_6px_18px_rgba(124,34,206,0.35)]">
                       <span className="relative flex h-2 w-2">
@@ -102,7 +102,7 @@ export default function Sistemas() {
                 </div>
 
                 {/* Vitrine: navegador com o sistema real + celular flutuante */}
-                <div className="relative flex flex-col justify-center border-t border-linha bg-fundo-suave p-6 pb-16 sm:p-9 sm:pb-16 lg:border-t-0 lg:border-l">
+                <div className="relative flex min-w-0 flex-col justify-center border-t border-linha bg-fundo-suave p-6 pb-16 sm:p-9 sm:pb-16 lg:border-t-0 lg:border-l">
                   <div
                     aria-hidden
                     className="absolute inset-0 bg-[radial-gradient(circle_at_72%_25%,rgba(124,34,206,0.14),transparent_60%)]"
@@ -113,7 +113,7 @@ export default function Sistemas() {
                         <span className="h-3 w-3 rounded-full bg-[#FF5F57]" />
                         <span className="h-3 w-3 rounded-full bg-[#FEBC2E]" />
                         <span className="h-3 w-3 rounded-full bg-[#28C840]" />
-                        <span className="mx-auto rounded-md border border-linha bg-fundo-suave px-4 py-0.5 font-mono text-[0.7rem] text-suave">
+                        <span className="mx-auto min-w-0 truncate rounded-md border border-linha bg-fundo-suave px-4 py-0.5 font-mono text-[0.7rem] text-suave">
                           {d.dominio}
                         </span>
                       </div>
@@ -123,6 +123,7 @@ export default function Sistemas() {
                           alt={`Tela do ${d.nome}`}
                           width={1280}
                           height={800}
+                          sizes="(min-width: 1024px) 42vw, 92vw"
                           className="w-full transition-transform duration-500 group-hover:scale-[1.03]"
                         />
                       ) : (
@@ -150,6 +151,7 @@ export default function Sistemas() {
                           alt={`${d.nome} no celular`}
                           width={390}
                           height={844}
+                          sizes="118px"
                           className="w-full"
                         />
                       </div>
