@@ -69,8 +69,13 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
         <div className="grade-fundo absolute inset-0" />
       </motion.div>
 
-      {/* Universo de estrelas interativo (reage ao mouse) */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
+      {/* Universo de estrelas interativo (reage ao mouse).
+          A máscara deixa as estrelas discretas na área do texto
+          e com brilho total na área da logo */}
+      <div
+        className="pointer-events-none absolute inset-0 [-webkit-mask-image:linear-gradient(100deg,rgba(0,0,0,0.14)_0%,rgba(0,0,0,0.22)_42%,rgba(0,0,0,0.75)_66%,#000_88%)] [mask-image:linear-gradient(100deg,rgba(0,0,0,0.14)_0%,rgba(0,0,0,0.22)_42%,rgba(0,0,0,0.75)_66%,#000_88%)]"
+        aria-hidden
+      >
         <Estrelas />
       </div>
 
