@@ -32,8 +32,11 @@ export default function Design() {
           <h2 className="mt-5 font-display text-[2.1rem] leading-tight font-bold text-creme md:text-[2.75rem]">
             Artes que dão vida às marcas
           </h2>
-          <p className="mt-2 rotate-[-1.5deg] font-script text-[1.7rem] text-roxo-claro">
-            do feed direto para o seu projeto ✦
+          <p className="mt-2 inline-flex items-center gap-2 rotate-[-1.5deg] font-script text-[1.7rem] text-roxo-claro">
+            do feed direto para o seu projeto
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+              <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" />
+            </svg>
           </p>
           <p className="mt-4 max-w-xl text-lg text-[#A895CC]">
             Além de sistemas, a PazConcept cria design gráfico e comunicação

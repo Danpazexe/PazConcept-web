@@ -170,8 +170,11 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
             priority
             className="relative animate-flutuar drop-shadow-[0_24px_50px_rgba(124,34,206,0.35)] will-change-transform"
           />
-          <span className="absolute right-2 -bottom-8 rotate-[-4deg] font-script text-[1.6rem] text-roxo/70">
-            o universo PazConcept ✦
+          <span className="absolute right-2 -bottom-8 inline-flex items-center gap-1.5 rotate-[-4deg] font-script text-[1.6rem] text-roxo/70">
+            o universo PazConcept
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+              <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" />
+            </svg>
           </span>
         </motion.div>
       </div>
