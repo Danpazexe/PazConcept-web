@@ -1,6 +1,7 @@
 "use client";
 
 import type { FormEvent } from "react";
+import { track } from "@vercel/analytics";
 import Reveal from "./Reveal";
 import { SecaoCabecalho } from "./Secao";
 import { SITE } from "@/data/config";
@@ -20,11 +21,12 @@ export default function Contato() {
       "",
       `E-mail para retorno: ${dados.get("email")}`,
     ].join("\n");
+    track("formulario_whatsapp", { assunto: String(dados.get("assunto") ?? "") });
     window.open(linkZap(texto), "_blank", "noopener");
   }
 
   const campo =
-    "w-full rounded-xl border border-linha bg-fundo-suave px-4 py-3 text-[0.94rem] text-tinta placeholder:text-suave/60 transition-all focus:border-roxo focus:bg-white focus:ring-4 focus:ring-roxo/15 focus:outline-none";
+    "w-full rounded-xl border border-linha bg-fundo-suave px-4 py-3 text-[0.94rem] text-tinta placeholder:text-suave/60 transition-all focus:border-roxo focus:bg-cartao focus:ring-4 focus:ring-roxo/15 focus:outline-none";
 
   return (
     <section id="contato" className="py-24">
@@ -87,7 +89,7 @@ export default function Contato() {
                 <a
                   href={c.href}
                   {...(c.externo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="flex items-center gap-4 rounded-2xl border border-linha bg-white p-5 transition-all hover:translate-x-1.5 hover:border-roxo"
+                  className="flex items-center gap-4 rounded-2xl border border-linha bg-cartao p-5 transition-all hover:translate-x-1.5 hover:border-roxo"
                 >
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-roxo-suave text-roxo [&_svg]:h-5.5 [&_svg]:w-5.5">
                     {c.icone}
@@ -104,7 +106,7 @@ export default function Contato() {
           <Reveal delay={0.15}>
             <form
               onSubmit={enviar}
-              className="rounded-3xl border border-linha bg-white p-8 shadow-[0_12px_40px_rgba(29,18,51,0.06)] sm:p-9"
+              className="rounded-3xl border border-linha bg-cartao p-8 shadow-[0_12px_40px_rgba(29,18,51,0.06)] sm:p-9"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="block">

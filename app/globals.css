@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* A variante dark: responde ao atributo data-tema="escuro" no <html>
+   (controlado pelo botão de tema, salvo no navegador) */
+@custom-variant dark (&:where([data-tema="escuro"], [data-tema="escuro"] *));
+
 /* ==========================================================
    Paleta da marca (extraída da logo) + cores de apoio
    ========================================================== */
@@ -14,6 +18,8 @@
   --color-suave: #7a7090; /* texto secundário */
   --color-linha: #e9e3f6; /* bordas */
 
+  --color-fundo: #ffffff; /* fundo da página */
+  --color-cartao: #ffffff; /* superfícies (cards, formulários) */
   --color-fundo-suave: #f8f6fc; /* seções alternadas */
   --color-creme: #f5efe1; /* creme da logo */
   --color-creme-escuro: #eadfc9;
@@ -55,13 +61,50 @@
   }
 }
 
+/* ==========================================================
+   Tema escuro: os mesmos tokens, com valores noturnos.
+   As classes das seções continuam iguais — só as variáveis mudam.
+   ========================================================== */
+[data-tema="escuro"] {
+  --color-roxo: #a855f7; /* um tom acima para contraste no escuro */
+  --color-roxo-suave: #33204f;
+
+  --color-tinta: #f1eaff;
+  --color-grafite: #c9bfe2;
+  --color-suave: #9c90bd;
+  --color-linha: #352950;
+
+  --color-fundo: #150c26;
+  --color-cartao: #1f1436;
+  --color-fundo-suave: #1a0f2e;
+}
+
+[data-tema="escuro"] .texto-grad {
+  background: linear-gradient(92deg, #c084fc 0%, #9d4edd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+[data-tema="escuro"] .grade-fundo {
+  background-image: linear-gradient(rgba(168, 85, 247, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.09) 1px, transparent 1px);
+}
+
+[data-tema="escuro"] ::-webkit-scrollbar-track {
+  background: #1a0f2e;
+}
+[data-tema="escuro"] ::-webkit-scrollbar-thumb {
+  background: #3d2c60;
+  border-color: #1a0f2e;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
 }
 
 body {
-  background: #fff;
+  background: var(--color-fundo);
   color: var(--color-grafite);
   -webkit-font-smoothing: antialiased;
 }

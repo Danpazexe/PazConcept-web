@@ -4,14 +4,17 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SITE } from "@/data/config";
+import TemaToggle from "./TemaToggle";
 
+/* href com "/#" para funcionarem também fora da home
+   (páginas de serviço, /dietspace, /links) */
 const LINKS = [
-  { href: "#inicio", label: "Início" },
-  { href: "#servicos", label: "Serviços" },
-  { href: "#sistemas", label: "Sistemas" },
-  { href: "#futuros", label: "Em breve" },
-  { href: "#design", label: "Design" },
-  { href: "#sobre", label: "Sobre" },
+  { id: "inicio", label: "Início" },
+  { id: "servicos", label: "Serviços" },
+  { id: "sistemas", label: "Sistemas" },
+  { id: "futuros", label: "Em breve" },
+  { id: "design", label: "Design" },
+  { id: "sobre", label: "Sobre" },
 ];
 
 export default function Header() {
@@ -48,12 +51,12 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 backdrop-blur-md transition-all ${
         rolado
-          ? "border-b border-linha bg-white/90 shadow-[0_4px_24px_rgba(29,18,51,0.05)]"
-          : "border-b border-transparent bg-white/70"
+          ? "border-b border-linha bg-cartao/90 shadow-[0_4px_24px_rgba(29,18,51,0.05)]"
+          : "border-b border-transparent bg-cartao/70"
       }`}
     >
       <div className="mx-auto flex h-20 w-[min(1160px,92%)] items-center justify-between">
-        <a href="#inicio" className="flex items-center gap-3">
+        <a href="/#inicio" className="flex items-center gap-3">
           <Image src="/logo-pc.png" alt="Logo" width={42} height={42} priority />
           <span className="font-heading text-lg font-bold text-tinta">
             Paz<em className="not-italic text-roxo">Concept</em>
@@ -63,24 +66,27 @@ export default function Header() {
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Navegação principal">
           {LINKS.map((l) => (
             <a
-              key={l.href}
-              href={l.href}
-              aria-current={secaoAtiva === l.href.slice(1) ? "true" : undefined}
+              key={l.id}
+              href={`/#${l.id}`}
+              aria-current={secaoAtiva === l.id ? "true" : undefined}
               className={`text-sm font-medium transition-colors hover:text-roxo ${
-                secaoAtiva === l.href.slice(1) ? "font-semibold text-roxo" : "text-grafite"
+                secaoAtiva === l.id ? "font-semibold text-roxo" : "text-grafite"
               }`}
             >
               {l.label}
             </a>
           ))}
+          <TemaToggle />
           <a
-            href="#contato"
+            href="/#contato"
             className="rounded-xl bg-gradient-to-br from-roxo-claro to-roxo-escuro px-5 py-2.5 text-sm font-semibold text-white shadow-[0_6px_20px_rgba(124,34,206,0.3)] transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(124,34,206,0.4)]"
           >
             Fale comigo
           </a>
         </nav>
 
+        <div className="flex items-center gap-2 lg:hidden">
+        <TemaToggle />
         <button
           className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
           onClick={() => setAberto(!aberto)}
@@ -99,6 +105,7 @@ export default function Header() {
             }`}
           />
         </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -108,14 +115,14 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden border-b border-linha bg-white/95 backdrop-blur-xl lg:hidden"
+            className="overflow-hidden border-b border-linha bg-cartao/95 backdrop-blur-xl lg:hidden"
             aria-label="Menu móvel"
           >
             <div className="flex flex-col items-center gap-1 py-4">
               {LINKS.map((l) => (
                 <a
-                  key={l.href}
-                  href={l.href}
+                  key={l.id}
+                  href={`/#${l.id}`}
                   onClick={() => setAberto(false)}
                   className="w-full py-3 text-center font-medium text-grafite hover:text-roxo"
                 >
@@ -123,7 +130,7 @@ export default function Header() {
                 </a>
               ))}
               <a
-                href="#contato"
+                href="/#contato"
                 onClick={() => setAberto(false)}
                 className="mt-2 mb-3 rounded-xl bg-gradient-to-br from-roxo-claro to-roxo-escuro px-8 py-3 font-semibold text-white"
               >

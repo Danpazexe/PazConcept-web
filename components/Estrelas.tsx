@@ -30,7 +30,7 @@ function sortearCor() {
   return 4;
 }
 
-export default function Estrelas() {
+export default function Estrelas({ comFade = true }: { comFade?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -121,6 +121,7 @@ export default function Estrelas() {
     /* Curva idêntica ao antigo mask-image:
        linear-gradient(100deg, 45% 0%, 55% 45%, 85% 65%, 100% 85%) */
     function fade(x: number, y: number) {
+      if (!comFade) return 1;
       const t = ((x - w / 2) * fadeDirX + (y - h / 2) * fadeDirY) / fadeL + 0.5;
       if (t <= 0) return 0.45;
       if (t < 0.45) return 0.45 + (t / 0.45) * 0.1;
@@ -378,7 +379,7 @@ export default function Estrelas() {
       window.removeEventListener("click", aoClicar);
       window.removeEventListener("mouseout", aoSair);
     };
-  }, []);
+  }, [comFade]);
 
   return <canvas ref={canvasRef} className="absolute inset-0" aria-hidden />;
 }

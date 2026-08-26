@@ -66,9 +66,17 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
+      suppressHydrationWarning
       className={`${inter.variable} ${sora.variable} ${jetbrains.variable} ${spaceGrotesk.variable} ${caveat.variable}`}
     >
       <body className="font-sans">
+        {/* aplica o tema salvo antes da primeira pintura — evita "piscada" */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.getItem('tema')==='escuro')document.documentElement.dataset.tema='escuro'}catch(e){}",
+          }}
+        />
         <a
           href="#inicio"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:rounded-xl focus:bg-roxo focus:px-5 focus:py-3 focus:font-semibold focus:text-white"

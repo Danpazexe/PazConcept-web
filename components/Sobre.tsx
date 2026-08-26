@@ -17,7 +17,7 @@ const VALORES = [
   {
     titulo: "Transparência",
     texto: "Comunicação clara e direta em todas as etapas.",
-    cor: "bg-blue-50 text-blue-600",
+    cor: "bg-blue-50 text-blue-600 dark:bg-blue-500/15 dark:text-blue-300",
     icone: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
@@ -28,7 +28,7 @@ const VALORES = [
   {
     titulo: "Segurança",
     texto: "Dados protegidos e boas práticas do início ao fim.",
-    cor: "bg-emerald-50 text-emerald-600",
+    cor: "bg-emerald-50 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-300",
     icone: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="11" width="18" height="11" rx="2" />
@@ -39,7 +39,7 @@ const VALORES = [
   {
     titulo: "Evolução constante",
     texto: "Sistemas vivos, com melhorias e novidades frequentes.",
-    cor: "bg-amber-50 text-amber-600",
+    cor: "bg-amber-50 text-amber-600 dark:bg-amber-500/15 dark:text-amber-300",
     icone: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
         <path d="M23 6l-9.5 9.5-5-5L1 18M17 6h6v6" />
@@ -106,7 +106,7 @@ export default function Sobre() {
               delay={i * 0.08}
               className={i % 2 === 1 ? "sm:translate-y-5" : ""}
             >
-              <div className="h-full rounded-2xl border border-linha bg-white p-6 shadow-[0_8px_28px_rgba(29,18,51,0.05)] transition-all hover:-translate-y-1 hover:border-roxo/40">
+              <div className="h-full rounded-2xl border border-linha bg-cartao p-6 shadow-[0_8px_28px_rgba(29,18,51,0.05)] transition-all hover:-translate-y-1 hover:border-roxo/40">
                 <div className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${v.cor} [&_svg]:h-5 [&_svg]:w-5`}>
                   {v.icone}
                 </div>

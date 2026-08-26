@@ -1,12 +1,16 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
+import Rastreado from "./Rastreado";
 import { SecaoCabecalho } from "./Secao";
 import { DESTAQUES } from "@/data/config";
 
 const SELOS: Record<string, string> = {
-  "Em produção": "border-emerald-200 bg-emerald-50 text-emerald-600",
-  "Em teste": "border-blue-200 bg-blue-50 text-blue-600",
-  "Em desenvolvimento": "border-amber-200 bg-amber-50 text-amber-600",
+  "Em produção":
+    "border-emerald-200 bg-emerald-50 text-emerald-600 dark:border-emerald-500/30 dark:bg-emerald-500/15 dark:text-emerald-300",
+  "Em teste":
+    "border-blue-200 bg-blue-50 text-blue-600 dark:border-blue-500/30 dark:bg-blue-500/15 dark:text-blue-300",
+  "Em desenvolvimento":
+    "border-amber-200 bg-amber-50 text-amber-600 dark:border-amber-500/30 dark:bg-amber-500/15 dark:text-amber-300",
   "Em breve": "border-roxo/25 bg-roxo-suave text-roxo",
 };
 
@@ -23,7 +27,7 @@ export default function Sistemas() {
             <Reveal key={d.nome} delay={i * 0.1}>
               {/* moldura em gradiente (vitrine de lançamento) */}
               <div className="rounded-3xl bg-gradient-to-br from-roxo-claro/60 via-linha to-roxo-escuro/50 p-[1.5px] shadow-[0_22px_70px_rgba(124,34,206,0.18)]">
-              <article className="grid overflow-hidden rounded-[calc(1.5rem-1.5px)] bg-white lg:grid-cols-[1.05fr_0.95fr]">
+              <article className="grid overflow-hidden rounded-[calc(1.5rem-1.5px)] bg-cartao lg:grid-cols-[1.05fr_0.95fr]">
                 {/* Informações */}
                 <div className="flex min-w-0 flex-col p-8 sm:p-10">
                   {d.lancamento && (
@@ -69,7 +73,9 @@ export default function Sistemas() {
 
                   <div className="mt-8 flex flex-wrap gap-4">
                     {d.url ? (
-                      <a
+                      <Rastreado
+                        evento="acessar_sistema"
+                        dados={{ sistema: d.nome }}
                         href={d.url}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -79,13 +85,21 @@ export default function Sistemas() {
                         <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M7 17 17 7M7 7h10v10" />
                         </svg>
-                      </a>
+                      </Rastreado>
                     ) : (
                       <a
                         href="#contato"
                         className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-br from-roxo-claro to-roxo-escuro px-6 py-3 font-semibold text-white shadow-[0_8px_24px_rgba(124,34,206,0.3)] transition-all hover:-translate-y-0.5"
                       >
                         Quero ser avisado
+                      </a>
+                    )}
+                    {d.casePagina && (
+                      <a
+                        href={d.casePagina}
+                        className="inline-flex items-center gap-2 rounded-xl border border-linha px-6 py-3 font-semibold text-tinta transition-all hover:border-roxo hover:bg-roxo-suave"
+                      >
+                        Ver o case completo
                       </a>
                     )}
                     {d.repo && (
@@ -108,8 +122,8 @@ export default function Sistemas() {
                     className="absolute inset-0 bg-[radial-gradient(circle_at_72%_25%,rgba(124,34,206,0.14),transparent_60%)]"
                   />
                   <div className="group relative">
-                    <div className="overflow-hidden rounded-2xl border border-linha bg-white shadow-[0_24px_60px_rgba(29,18,51,0.18)]">
-                      <div className="flex items-center gap-2 border-b border-linha bg-white px-4 py-3">
+                    <div className="overflow-hidden rounded-2xl border border-linha bg-cartao shadow-[0_24px_60px_rgba(29,18,51,0.18)]">
+                      <div className="flex items-center gap-2 border-b border-linha bg-cartao px-4 py-3">
                         <span className="h-3 w-3 rounded-full bg-[#FF5F57]" />
                         <span className="h-3 w-3 rounded-full bg-[#FEBC2E]" />
                         <span className="h-3 w-3 rounded-full bg-[#28C840]" />
@@ -145,7 +159,7 @@ export default function Sistemas() {
                     </div>
 
                     {d.imagemMobile && (
-                      <div className="absolute -bottom-10 -left-3 w-[100px] rotate-[-7deg] overflow-hidden rounded-[1.3rem] border-[5px] border-white shadow-[0_20px_46px_rgba(29,18,51,0.35)] transition-transform duration-500 group-hover:rotate-[-3deg] sm:w-[118px]">
+                      <div className="absolute -bottom-10 -left-3 w-[100px] rotate-[-7deg] overflow-hidden rounded-[1.3rem] border-[5px] border-cartao shadow-[0_20px_46px_rgba(29,18,51,0.35)] transition-transform duration-500 group-hover:rotate-[-3deg] sm:w-[118px]">
                         <Image
                           src={d.imagemMobile}
                           alt={`${d.nome} no celular`}
@@ -163,7 +177,7 @@ export default function Sistemas() {
                         alt=""
                         width={62}
                         height={62}
-                        className="absolute -top-5 -right-3 rotate-6 rounded-2xl shadow-[0_14px_32px_rgba(29,18,51,0.3)] ring-4 ring-white transition-transform duration-500 group-hover:rotate-3"
+                        className="absolute -top-5 -right-3 rotate-6 rounded-2xl shadow-[0_14px_32px_rgba(29,18,51,0.3)] ring-4 ring-cartao transition-transform duration-500 group-hover:rotate-3"
                       />
                     )}
 

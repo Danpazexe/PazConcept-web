@@ -3,7 +3,8 @@ import { SecaoCabecalho } from "./Secao";
 import { FUTUROS } from "@/data/config";
 
 const SELOS: Record<string, string> = {
-  "Em desenvolvimento": "border-amber-200 bg-amber-50 text-amber-600",
+  "Em desenvolvimento":
+    "border-amber-200 bg-amber-50 text-amber-600 dark:border-amber-500/30 dark:bg-amber-500/15 dark:text-amber-300",
   Planejado: "border-roxo/25 bg-roxo-suave text-roxo",
 };
 
@@ -18,7 +19,7 @@ export default function Futuros() {
         <div className="grid gap-6 md:grid-cols-2">
           {FUTUROS.map((p, i) => (
             <Reveal key={p.nome} delay={i * 0.1}>
-              <article className="group relative h-full rounded-2xl border-2 border-dashed border-roxo/25 bg-white p-8 transition-all hover:-translate-y-1.5 hover:border-roxo/60 hover:shadow-[0_18px_44px_rgba(124,34,206,0.1)]">
+              <article className="group relative h-full rounded-2xl border-2 border-dashed border-roxo/25 bg-cartao p-8 transition-all hover:-translate-y-1.5 hover:border-roxo/60 hover:shadow-[0_18px_44px_rgba(124,34,206,0.1)]">
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="relative flex h-3 w-3">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-roxo opacity-50" />
@@ -45,7 +46,7 @@ export default function Futuros() {
                   ))}
                   <a
                     href="#contato"
-                    className="ml-auto text-sm font-semibold text-roxo transition-colors hover:text-roxo-escuro"
+                    className="ml-auto text-sm font-semibold text-roxo transition-colors hover:text-roxo-escuro dark:hover:text-roxo-claro"
                   >
                     Quero ser avisado →
                   </a>

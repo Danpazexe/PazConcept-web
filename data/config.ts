@@ -44,6 +44,7 @@ export type Destaque = {
   imagem?: string; // screenshot desktop do sistema (arquivo em /public)
   imagemMobile?: string; // screenshot mobile (arquivo em /public)
   lancamento?: boolean; // exibe o selo animado de lançamento
+  casePagina?: string; // página de case dentro do site (ex.: "/dietspace")
   recursos: string[];
   dominio: string; // endereço exibido na "janela" do card
 };
@@ -85,6 +86,7 @@ export const DESTAQUES: Destaque[] = [
     imagem: "/dietspace-desktop.jpg",
     imagemMobile: "/dietspace-mobile.jpg",
     lancamento: true,
+    casePagina: "/dietspace",
     recursos: [
       "Avaliação completa e anamnese",
       "Plano alimentar com mais de 10 mil alimentos",

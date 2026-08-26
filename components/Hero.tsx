@@ -65,7 +65,7 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
       >
         <div className="absolute -top-48 -right-40 h-[680px] w-[680px] bg-[radial-gradient(circle,rgba(124,34,206,0.14),transparent_62%)]" />
         <div className="absolute -bottom-48 -left-44 h-[580px] w-[580px] bg-[radial-gradient(circle,rgba(157,78,221,0.12),transparent_62%)]" />
-        <div className="absolute top-1/4 left-1/2 h-[420px] w-[420px] -translate-x-1/2 bg-[radial-gradient(circle,rgba(245,239,225,0.7),transparent_60%)]" />
+        <div className="absolute top-1/4 left-1/2 h-[420px] w-[420px] -translate-x-1/2 bg-[radial-gradient(circle,rgba(245,239,225,0.7),transparent_60%)] dark:opacity-[0.08]" />
         <div className="grade-fundo absolute inset-0" />
       </motion.div>
 
@@ -126,7 +126,7 @@ export default function Hero({ metricas }: { metricas: Metrica[] }) {
             </a>
             <a
               href="#futuros"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-linha bg-white px-7 py-3.5 font-semibold text-tinta transition-all hover:-translate-y-0.5 hover:border-roxo hover:bg-roxo-suave"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-linha bg-cartao px-7 py-3.5 font-semibold text-tinta transition-all hover:-translate-y-0.5 hover:border-roxo hover:bg-roxo-suave"
             >
               Projetos futuros
             </a>

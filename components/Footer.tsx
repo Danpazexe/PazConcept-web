@@ -43,11 +43,12 @@ export default function Footer() {
 
         <nav aria-label="Links do rodapé" className="flex flex-col gap-3 text-sm">
           <b className="mb-1 font-heading text-creme">Navegação</b>
-          <a href="#inicio" className="transition-colors hover:text-creme">Início</a>
-          <a href="#servicos" className="transition-colors hover:text-creme">Serviços</a>
-          <a href="#sistemas" className="transition-colors hover:text-creme">Sistemas</a>
-          <a href="#futuros" className="transition-colors hover:text-creme">Em breve</a>
-          <a href="#sobre" className="transition-colors hover:text-creme">Sobre</a>
+          <a href="/#inicio" className="transition-colors hover:text-creme">Início</a>
+          <a href="/#servicos" className="transition-colors hover:text-creme">Serviços</a>
+          <a href="/#sistemas" className="transition-colors hover:text-creme">Sistemas</a>
+          <a href="/#futuros" className="transition-colors hover:text-creme">Em breve</a>
+          <a href="/#sobre" className="transition-colors hover:text-creme">Sobre</a>
+          <a href="/links" className="transition-colors hover:text-creme">Todos os links</a>
         </nav>
 
         <div className="flex flex-col gap-3 text-sm">
@@ -69,6 +70,9 @@ export default function Footer() {
               </span>
             )
           )}
+          <a href="/dietspace" className="transition-colors hover:text-creme">
+            Case DietSpace
+          </a>
           <a
             href={SITE.redes.github}
             target="_blank"

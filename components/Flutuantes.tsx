@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { track } from "@vercel/analytics";
 import { SITE } from "@/data/config";
 
 export default function Flutuantes() {
@@ -20,6 +21,7 @@ export default function Flutuantes() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Falar no WhatsApp"
+        onClick={() => track("whatsapp_flutuante")}
         className="fixed right-6 bottom-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_28px_rgba(37,211,102,0.4)] transition-transform hover:scale-110"
       >
         <svg className="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
@@ -30,7 +32,7 @@ export default function Flutuantes() {
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Voltar ao topo"
-        className={`fixed right-[26px] bottom-24 z-40 flex h-11 w-11 items-center justify-center rounded-xl border border-linha bg-white text-tinta shadow-[0_8px_24px_rgba(29,18,51,0.12)] transition-all hover:border-roxo hover:text-roxo ${
+        className={`fixed right-[26px] bottom-24 z-40 flex h-11 w-11 items-center justify-center rounded-xl border border-linha bg-cartao text-tinta shadow-[0_8px_24px_rgba(29,18,51,0.12)] transition-all hover:border-roxo hover:text-roxo ${
           mostrarTopo ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
         }`}
       >
