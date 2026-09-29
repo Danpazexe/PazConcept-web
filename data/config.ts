@@ -104,7 +104,7 @@ export const DESTAQUES: Destaque[] = [
       "Tratativa de ocorrências de entrega para distribuidoras: o motorista relata no celular, mesmo sem sinal, e o escritório trata num painel em tempo real.",
     frase:
       "Tira as ocorrências de entrega do WhatsApp e das planilhas: cada caso com um dono, do relato do motorista ao aviso ao vendedor.",
-    status: "Em produção",
+    status: "Em teste",
     url: "https://elaraspace.pazconcept.com.br",
     icone: "/sistemas/elaraspace/elaraspace-simbolo-gradiente.svg",
     casePagina: "/elaraspace",

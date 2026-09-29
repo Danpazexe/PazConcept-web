@@ -182,8 +182,8 @@ export default function ApresentacaoElaraSpace() {
 
               <div className="flex flex-wrap items-center gap-3">
                 <Rotulo>Apresentação</Rotulo>
-                <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 font-mono text-[0.66rem] font-semibold tracking-wider text-emerald-700 uppercase dark:border-emerald-500/30 dark:bg-emerald-500/15 dark:text-emerald-300">
-                  Em produção
+                <span className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 font-mono text-[0.66rem] font-semibold tracking-wider text-sky-700 uppercase dark:border-sky-500/30 dark:bg-sky-500/15 dark:text-sky-300">
+                  Em teste
                 </span>
               </div>
 
