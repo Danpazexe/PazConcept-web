@@ -41,7 +41,7 @@
 
 - **Universo interativo** — céu de estrelas desenhado em canvas puro: constelações, paralaxe 3D, repulsão ao mouse, estrelas cadentes e explosões de faíscas ao clicar. Pausa sozinho fora da tela e respeita `prefers-reduced-motion`.
 - **Vitrine de sistemas** — DietSpace, ElaraSpace e PitSpace em cards horizontais da mesma família: cada um com a própria cor e uma mini-cena animada do produto (framer-motion, pausa fora da tela e respeita `prefers-reduced-motion`), com página de apresentação em `/dietspace`, `/elaraspace` e `/pitspace`.
-- **Em construção** — os próximos sistemas em cards da mesma família, com o blueprint da interface se desenhando devagar e uma barra de progresso discreta, sem link quebrado.
+- **Em construção** — os próximos sistemas num "canteiro de obras": card horizontal com fita de obra fina, guindaste com a carga subindo devagar e barra de progresso, sem link quebrado.
 - **Projetos automáticos** — a contagem de projetos vem da API do GitHub (públicos e privados via token), revalidada a cada 10 minutos (ISR).
 - **Design & comunicação** — seção dedicada ao braço de design da marca, com galeria real do feed do Instagram.
 - **Contato sem atrito** — formulário sem backend: valida, monta a mensagem e abre direto no WhatsApp.

@@ -36,35 +36,63 @@
   --animate-girar-lento: girar-reverso 48s linear infinite;
 }
 
-/* Cards "em construção": brilho lento atravessando o blueprint e a barra de
-   progresso. Só roda com o card na tela (data-ativo), e o bloco de
+/* Cards "em construção" (components/cartoes/CartaoObra.tsx): tudo lento e em
+   ease-in-out. Só roda com o card na tela (data-ativo); o bloco de
    prefers-reduced-motion no fim desliga tudo. */
-.blueprint .bp-brilho {
-  transform-box: fill-box;
+.obra-fita {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(124, 34, 206, 0.5) 0 7px,
+    rgba(245, 239, 225, 0.85) 7px 14px
+  );
+  background-size: 19.8px 19.8px;
 }
-.blueprint .bp-brilho,
-.progresso-brilho::after {
-  animation: brilho-passa 4.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+.obra-progresso {
+  background-color: var(--color-roxo);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.16) 0 6px,
+    transparent 6px 12px
+  );
+  background-size: 17px 17px;
+}
+.obra [data-anim] {
   animation-play-state: paused;
 }
-.blueprint[data-ativo="sim"] .bp-brilho,
-[data-ativo="sim"] .progresso-brilho::after {
+.obra[data-ativo="sim"] [data-anim] {
   animation-play-state: running;
 }
-.progresso-brilho::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: 40%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+.obra [data-anim="carga"] {
+  animation: obra-carga 3.8s ease-in-out infinite alternate;
 }
-@keyframes brilho-passa {
-  0% {
-    transform: translateX(-120%);
+.obra [data-anim="luz"] {
+  animation: obra-luz 4s ease-in-out infinite alternate;
+}
+.obra [data-anim="fita"] {
+  animation: obra-desliza 14s linear infinite;
+}
+.obra [data-anim="progresso"] {
+  animation: obra-desliza 6s linear infinite;
+}
+@keyframes obra-carga {
+  from {
+    transform: translateY(0);
   }
-  60%,
-  100% {
-    transform: translateX(400%);
+  to {
+    transform: translateY(-9px);
+  }
+}
+@keyframes obra-luz {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+@keyframes obra-desliza {
+  to {
+    background-position: 39.6px 0;
   }
 }
 
