@@ -31,8 +31,11 @@ export const SITE = {
 };
 
 /* ---------- Sistemas em destaque (curadoria manual) ----------
-   Aqui entram os sistemas prontos, com link de acesso direto.
-   Quando um novo sistema ficar pronto, adicione outro objeto. */
+   Cada sistema vira um card com o mesmo esqueleto (components/cartoes):
+   mini-cena animada, logo + selo, uma frase de valor, três destaques e os
+   botões. O PRIMEIRO da lista é o destaque principal (card deitado no
+   desktop). Sistema novo: adicione o objeto e o tema dele em
+   components/cartoes/CartaoSistema.tsx. */
 
 export type Destaque = {
   nome: string;
@@ -41,16 +44,11 @@ export type Destaque = {
   url: string; // link de acesso ao sistema ("" = ainda sem link público)
   repo?: string; // link do repositório (opcional)
   icone?: string; // ícone do sistema (arquivo em /public)
-  imagem?: string; // screenshot desktop do sistema (arquivo em /public)
-  imagemMobile?: string; // screenshot mobile (arquivo em /public)
-  lancamento?: boolean; // exibe o selo animado de lançamento
   casePagina?: string; // página de case dentro do site (ex.: "/dietspace")
-  recursos: string[];
-  dominio: string; // endereço exibido na "janela" do card
-  // Card personalizado (ilustração animada com a identidade do produto).
-  // Sem "cartao", o sistema aparece na vitrine grande com screenshots.
-  cartao?: "elaraspace" | "pitspace";
-  frase?: string; // uma frase: o que o sistema resolve (cards personalizados)
+  recursos: string[]; // três destaques (cada um ganha um ícone próprio no card)
+  dominio: string; // endereço público exibido nas páginas de apresentação
+  cartao: "dietspace" | "elaraspace" | "pitspace"; // tema e mini-cena do card
+  frase: string; // uma frase de valor: o que o sistema resolve
   rotuloAcesso?: string; // texto do botão de acesso (padrão: "Acessar")
 };
 
@@ -85,16 +83,17 @@ export const DESTAQUES: Destaque[] = [
     nome: "DietSpace",
     descricao:
       "Sistema para consultório de nutrição: da anamnese ao plano na mão da paciente — avaliação completa, plano alimentar, agenda com lembretes e app da paciente.",
-    status: "Em teste",
+    frase:
+      "Da anamnese ao plano na mão da paciente: o consultório de nutrição inteiro num só lugar, sem ficha de papel e sem planilha.",
+    status: "Em produção",
     url: "https://www.dietspace.com.br",
     icone: "/dietspace-icon.png",
-    imagem: "/dietspace-desktop.jpg",
-    imagemMobile: "/dietspace-mobile.jpg",
-    lancamento: true,
     casePagina: "/dietspace",
+    cartao: "dietspace",
+    rotuloAcesso: "Acessar o DietSpace",
     recursos: [
-      "Avaliação completa e anamnese",
-      "Plano alimentar com mais de 10 mil alimentos",
+      "Anamnese e avaliação completa, com os cálculos prontos",
+      "Plano alimentar com mais de 10 mil alimentos brasileiros",
       "Agenda com lembretes e app da paciente",
     ],
     dominio: "www.dietspace.com.br",
@@ -113,9 +112,8 @@ export const DESTAQUES: Destaque[] = [
     rotuloAcesso: "Acessar o sistema",
     recursos: [
       "App do motorista que funciona sem sinal",
-      "Fila em tempo real com posse de uma pessoa só",
+      "Fila em tempo real: cada caso com um dono só",
       "Aviso automático ao vendedor pelo WhatsApp",
-      "Relatórios e apresentação mensal em PPTX",
     ],
     dominio: "elaraspace.pazconcept.com.br",
   },
@@ -135,7 +133,6 @@ export const DESTAQUES: Destaque[] = [
       "Ordem de serviço que nasce pela placa",
       "Orçamento aprovado pelo cliente no celular",
       "App do mecânico direto no box",
-      "Estoque e caixa sem borracha",
     ],
     dominio: "pitspace.vercel.app",
   },

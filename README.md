@@ -40,7 +40,8 @@
 ## Recursos
 
 - **Universo interativo** — céu de estrelas desenhado em canvas puro: constelações, paralaxe 3D, repulsão ao mouse, estrelas cadentes e explosões de faíscas ao clicar. Pausa sozinho fora da tela e respeita `prefers-reduced-motion`.
-- **Vitrine de lançamento** — cada sistema em destaque aparece em mockup de navegador com telas reais + celular flutuante (o DietSpace é o primeiro; os próximos entram só editando a config).
+- **Vitrine de sistemas** — DietSpace, ElaraSpace e PitSpace em cards da mesma família: cada um com a própria cor e uma mini-cena animada do produto (framer-motion, pausa fora da tela e respeita `prefers-reduced-motion`), com página de apresentação em `/dietspace`, `/elaraspace` e `/pitspace`.
+- **Em construção** — os próximos sistemas aparecem num "canteiro de obras" (fita, guindaste e progresso animados), sem link quebrado.
 - **Projetos automáticos** — a contagem de projetos vem da API do GitHub (públicos e privados via token), revalidada a cada 10 minutos (ISR).
 - **Design & comunicação** — seção dedicada ao braço de design da marca, com galeria real do feed do Instagram.
 - **Contato sem atrito** — formulário sem backend: valida, monta a mensagem e abre direto no WhatsApp.
@@ -108,8 +109,8 @@ Quase tudo se ajusta em um único arquivo: [`data/config.ts`](data/config.ts)
 | O quê | Onde |
 | --- | --- |
 | Marca, WhatsApp, e-mail e redes | `SITE` |
-| Sistemas em destaque (vitrine) | `DESTAQUES` |
-| Projetos futuros | `FUTUROS` |
+| Sistemas em destaque (cards; o primeiro é o principal) | `DESTAQUES` + tema em `components/cartoes/CartaoSistema.tsx` |
+| Sistemas em construção | `FUTUROS` |
 | Repositórios ocultos e forks | `reposOcultos` · `mostrarForks` |
 
 Outros pontos editáveis estão marcados com `EDITE AQUI` no código. A logo original fica em `public/logo-pc.png`, com variações (P&B e cores) em `public/variacoes/`.

@@ -7,60 +7,121 @@ import ScrollProgress from "@/components/ScrollProgress";
 import Reveal from "@/components/Reveal";
 import Rastreado from "@/components/Rastreado";
 import { Rotulo } from "@/components/Secao";
+import ConsultorioDietSpace from "@/components/cartoes/ConsultorioDietSpace";
+import {
+  ChamadaFinal,
+  DesafioSolucao,
+  GradeBlocos,
+  IconeSaida,
+  Migalha,
+  Stack,
+  TituloSecao,
+  Vitrine,
+  type Bloco,
+} from "@/components/Case";
 import { SITE } from "@/data/config";
 
+const ENDERECO = "https://www.dietspace.com.br";
+
 export const metadata: Metadata = {
-  title: "Case DietSpace — sistema para consultório de nutrição",
+  title: "DietSpace — sistema para consultório de nutrição",
   description:
-    "Como a PazConcept criou o DietSpace: sistema completo para consultório de nutrição, da anamnese ao plano alimentar na mão da paciente. Veja o case e peça um sistema para o seu negócio.",
+    "DietSpace: sistema completo para consultório de nutrição. Anamnese, avaliação antropométrica, plano alimentar com mais de 10 mil alimentos, PDFs com a marca do consultório, agenda com lembretes, teleconsulta e app da paciente.",
   alternates: { canonical: "/dietspace" },
   openGraph: {
-    title: "Case DietSpace · PazConcept",
+    title: "DietSpace · PazConcept",
     description:
-      "Da anamnese ao plano na mão da paciente: o sistema de nutrição criado pela PazConcept.",
+      "Da anamnese ao plano na mão da paciente: o consultório de nutrição inteiro num só lugar.",
     url: "/dietspace",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "PazConcept" }],
   },
 };
 
-const RECURSOS = [
+const s = "h-5 w-5";
+const sv = {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  "aria-hidden": true,
+};
+
+/* A consulta, de ponta a ponta: cada etapa alimenta a seguinte */
+const FLUXO = [
+  { nome: "Anamnese", texto: "Histórico clínico, alergias e restrições — que viram alertas no plano." },
+  { nome: "Avaliação", texto: "Dobras, IMC, percentual de gordura e gasto energético calculados na hora." },
+  { nome: "Plano alimentar", texto: "Refeições com metas de macros em tempo real e substituições." },
+  { nome: "Documentos", texto: "Plano, lista de compras e recibo em PDF, com a marca do consultório." },
+  { nome: "Acompanhamento", texto: "A paciente registra diário, água e peso no app; a nutricionista vê a evolução." },
+];
+
+const BLOCOS: Bloco[] = [
   {
     titulo: "Anamnese e avaliação completa",
     texto:
-      "Histórico clínico, dobras cutâneas, IMC, percentual de gordura e cálculo energético — com alertas que acompanham a paciente no plano.",
+      "Protocolos de dobras (Jackson-Pollock, Durnin, Slaughter), IMC, percentual de gordura e cálculo energético (Mifflin, Harris-Benedict, FAO/OMS), com curvas de crescimento e de gestante.",
+    icone: <svg className={s} {...sv}><rect x="8" y="2" width="8" height="4" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M9 12h6M9 16h4" /></svg>,
   },
   {
-    titulo: "Plano alimentar inteligente",
+    titulo: "Plano alimentar",
     texto:
-      "Mais de 10 mil alimentos brasileiros (base TACO), medidas caseiras, metas de macros em tempo real e substituições.",
+      "Mais de 10 mil alimentos brasileiros (base TACO), medidas caseiras, metas de macros em tempo real, substituições e modelos para reaproveitar.",
+    icone: <svg className={s} {...sv}><path d="M12 6.5C10.5 5 8 5 6.5 6.2 4.4 8 4.6 12 6.4 15.6 7.8 18.4 9.8 21 12 20c2.2 1 4.2-1.6 5.6-4.4 1.8-3.6 2-7.6-.1-9.4C16 5 13.5 5 12 6.5Z" /><path d="M12 6.5c0-2 1-3.5 3-4.5" /></svg>,
   },
   {
-    titulo: "Documentos profissionais em PDF",
+    titulo: "Sugestão do dia com IA",
     texto:
-      "Plano, lista de compras, contrato, recibo e termos — todos com a marca da nutricionista, gerados em um clique.",
+      "A IA propõe o dia inteiro e o motor de cálculo fecha as metas. A nutricionista revisa e corrige — e o sistema aprende com as correções dela.",
+    icone: <svg className={s} {...sv}><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" /><path d="M19 17v4M17 19h4" /></svg>,
   },
   {
-    titulo: "Agenda com lembretes",
+    titulo: "Documentos em PDF",
     texto:
-      "Consultas e retornos com lembrete automático — menos falta, mais consultório cheio.",
+      "Plano, lista de compras, contrato, recibo, termo de consentimento e evolução — com a marca do consultório, em um clique.",
+    icone: <svg className={s} {...sv}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M9 15h6M9 18h4" /></svg>,
+  },
+  {
+    titulo: "Agenda, lembretes e teleconsulta",
+    texto:
+      "Consultas e retornos com lembrete automático por notificação e e-mail. E, quando a paciente não pode ir, a consulta acontece por vídeo.",
+    icone: <svg className={s} {...sv}><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /><path d="m9 16 2 2 4-4" /></svg>,
   },
   {
     titulo: "App da paciente",
     texto:
-      "Diário alimentar, água, peso e evolução na palma da mão — instala direto do navegador, como um aplicativo.",
-  },
-  {
-    titulo: "Seguro desde o início",
-    texto:
-      "Dados de saúde protegidos com login seguro, criptografia e cópias automáticas.",
+      "Diário alimentar, água, peso e evolução na palma da mão. Instala direto do navegador, como um aplicativo, sem passar por loja.",
+    icone: <svg className={s} {...sv}><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg>,
   },
 ];
 
-const STACK = ["Next.js 16", "React 19", "TypeScript", "Tailwind v4", "Prisma", "PostgreSQL", "Vercel"];
+const EXTRAS = ["Receitas", "Mensagens", "Orientações", "Financeiro", "Relatórios", "Busca com Ctrl+K", "Versões com \"O que mudou\"", "Tema escuro"];
 
-export default function CaseDietSpace() {
+const DIFERENCIAIS = [
+  {
+    titulo: "Cálculo de verdade",
+    texto: "Os protocolos que a nutrição usa, implementados um a um e cobertos por testes automatizados.",
+  },
+  {
+    titulo: "A cara do consultório",
+    texto: "Documento entregue à paciente sai com a marca da nutricionista: quem aparece é o consultório, não o sistema.",
+  },
+  {
+    titulo: "Cada dado nasce uma vez",
+    texto: "A anamnese alimenta a avaliação, a avaliação alimenta o plano, e o plano chega ao app. Nada é redigitado.",
+  },
+  {
+    titulo: "Dados de saúde protegidos",
+    texto: "Login seguro, áreas separadas para nutricionista e paciente e cópias automáticas do banco.",
+  },
+];
+
+const STACK = ["Next.js 16", "React 19", "TypeScript", "Tailwind v4", "Prisma 7", "PostgreSQL", "PWA", "Vercel"];
+
+export default function ApresentacaoDietSpace() {
   const zap = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
-    "Olá! Vi o case do DietSpace e quero um sistema para o meu negócio."
+    "Olá! Vi a apresentação do DietSpace e quero um sistema para o meu negócio."
   )}`;
 
   const dadosEstruturados = {
@@ -69,10 +130,10 @@ export default function CaseDietSpace() {
     name: "DietSpace",
     applicationCategory: "HealthApplication",
     operatingSystem: "Web",
-    url: "https://www.dietspace.com.br",
+    url: ENDERECO,
     creator: { "@type": "Organization", name: "PazConcept", url: "https://www.pazconcept.com.br" },
     description:
-      "Sistema para consultório de nutrição: anamnese, avaliação antropométrica, planos alimentares, PDFs, agenda e portal da paciente.",
+      "Sistema para consultório de nutrição: anamnese, avaliação antropométrica, planos alimentares, PDFs, agenda, teleconsulta e app da paciente.",
   };
 
   return (
@@ -84,22 +145,16 @@ export default function CaseDietSpace() {
         <section className="relative overflow-hidden pt-36 pb-16">
           <div
             aria-hidden
-            className="absolute -top-40 -right-40 h-[560px] w-[560px] bg-[radial-gradient(circle,rgba(124,34,206,0.13),transparent_62%)]"
+            className="absolute -top-40 -right-40 h-[560px] w-[560px] bg-[radial-gradient(circle,rgba(136,52,244,0.14),transparent_62%)]"
           />
           <div className="relative mx-auto grid w-[min(1160px,92%)] items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
             <Reveal>
-              <nav aria-label="Você está em" className="mb-6 font-mono text-xs text-suave">
-                <a href="/" className="transition-colors hover:text-roxo">Início</a>
-                <span className="mx-2">/</span>
-                <a href="/#sistemas" className="transition-colors hover:text-roxo">Sistemas</a>
-                <span className="mx-2">/</span>
-                <span className="text-roxo">DietSpace</span>
-              </nav>
+              <Migalha nome="DietSpace" />
 
               <div className="flex flex-wrap items-center gap-3">
-                <Rotulo>Case de sucesso</Rotulo>
-                <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 font-mono text-[0.66rem] font-semibold tracking-wider text-blue-600 uppercase dark:border-blue-500/30 dark:bg-blue-500/15 dark:text-blue-300">
-                  Em teste
+                <Rotulo>Apresentação</Rotulo>
+                <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 font-mono text-[0.66rem] font-semibold tracking-wider text-emerald-700 uppercase dark:border-emerald-500/30 dark:bg-emerald-500/15 dark:text-emerald-300">
+                  Em produção
                 </span>
               </div>
 
@@ -109,7 +164,7 @@ export default function CaseDietSpace() {
                   alt="Ícone do DietSpace"
                   width={64}
                   height={64}
-                  className="rounded-2xl shadow-[0_10px_26px_rgba(29,18,51,0.2)]"
+                  className="rounded-2xl shadow-[0_10px_26px_rgba(136,52,244,0.3)]"
                 />
                 <h1 className="font-display text-[2.2rem] leading-[1.08] font-bold text-tinta sm:text-5xl">
                   DietSpace
@@ -118,31 +173,26 @@ export default function CaseDietSpace() {
 
               <p className="mt-3 inline-flex items-center gap-2 rotate-[-1deg] font-script text-[1.6rem] text-roxo-claro">
                 o consultório de nutrição, inteiro num só lugar
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                  <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" />
-                </svg>
               </p>
 
               <p className="mt-5 max-w-xl text-lg text-suave">
-                O DietSpace nasceu de um problema real: nutricionistas gastando
-                horas com fichas de papel, planilhas soltas e planos montados à
-                mão. A PazConcept transformou esse dia a dia num sistema único —
-                da anamnese ao plano alimentar na mão da paciente.
+                O DietSpace nasceu de um problema real: nutricionista gastando
+                horas com ficha de papel, planilha solta e plano montado à mão.
+                Hoje ele está em produção num consultório de verdade — da
+                anamnese ao plano alimentar na mão da paciente.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-4">
                 <Rastreado
                   evento="acessar_sistema"
                   dados={{ sistema: "DietSpace", origem: "case" }}
-                  href="https://www.dietspace.com.br"
+                  href={ENDERECO}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-br from-roxo-claro to-roxo-escuro px-7 py-3.5 font-semibold text-white shadow-[0_8px_26px_rgba(124,34,206,0.32)] transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(124,34,206,0.42)]"
                 >
                   Acessar o DietSpace
-                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M7 17 17 7M7 7h10v10" />
-                  </svg>
+                  {IconeSaida}
                 </Rastreado>
                 <Rastreado
                   evento="orcamento_servico"
@@ -157,158 +207,135 @@ export default function CaseDietSpace() {
               </div>
             </Reveal>
 
-            {/* Vitrine com as telas reais */}
             <Reveal delay={0.15}>
-              <div className="group relative">
-                <div className="overflow-hidden rounded-2xl border border-linha bg-cartao shadow-[0_24px_60px_rgba(29,18,51,0.18)]">
-                  <div className="flex items-center gap-2 border-b border-linha bg-cartao px-4 py-3">
-                    <span className="h-3 w-3 rounded-full bg-[#FF5F57]" />
-                    <span className="h-3 w-3 rounded-full bg-[#FEBC2E]" />
-                    <span className="h-3 w-3 rounded-full bg-[#28C840]" />
-                    <span className="mx-auto min-w-0 truncate rounded-md border border-linha bg-fundo-suave px-4 py-0.5 font-mono text-[0.7rem] text-suave">
-                      www.dietspace.com.br
-                    </span>
-                  </div>
-                  <Image
-                    src="/dietspace-desktop.jpg"
-                    alt="Tela do DietSpace no computador"
-                    width={1280}
-                    height={800}
-                    sizes="(min-width: 1024px) 44vw, 92vw"
-                    className="w-full transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                </div>
-                <div className="absolute -bottom-10 -left-3 w-[100px] rotate-[-7deg] overflow-hidden rounded-[1.3rem] border-[5px] border-cartao shadow-[0_20px_46px_rgba(29,18,51,0.35)] transition-transform duration-500 group-hover:rotate-[-3deg] sm:w-[118px]">
-                  <Image
-                    src="/dietspace-mobile.jpg"
-                    alt="DietSpace no celular"
-                    width={390}
-                    height={844}
-                    sizes="118px"
-                    className="w-full"
-                  />
-                </div>
-              </div>
+              <Vitrine
+                dominio="www.dietspace.com.br"
+                tela="/dietspace-desktop.jpg"
+                altTela="Página do DietSpace no computador"
+                celular="/dietspace-mobile.jpg"
+                altCelular="DietSpace no celular"
+                prioridade
+              />
             </Reveal>
           </div>
         </section>
 
-        {/* Desafio → solução */}
-        <section className="border-y border-linha bg-fundo-suave py-20">
-          <div className="mx-auto grid w-[min(1160px,92%)] gap-8 md:grid-cols-2">
-            <Reveal>
-              <article className="h-full rounded-2xl border border-linha bg-cartao p-8">
-                <p className="font-mono text-xs font-semibold tracking-[0.14em] text-suave uppercase">
-                  O desafio
-                </p>
-                <h2 className="mt-3 font-heading text-xl font-bold text-tinta">
-                  Consultório no papel e na planilha
-                </h2>
-                <p className="mt-3 text-suave">
-                  Fichas de anamnese impressas, avaliações em planilhas, planos
-                  montados no editor de texto e agenda num caderno. Cada consulta
-                  exigia juntar informação espalhada em cinco lugares — e a
-                  paciente saía com um PDF genérico.
-                </p>
-              </article>
-            </Reveal>
+        <DesafioSolucao
+          desafio={{
+            titulo: "Consultório no papel e na planilha",
+            texto: (
+              <p>
+                Ficha de anamnese impressa, avaliação em planilha, plano montado
+                no editor de texto e agenda no caderno. Cada consulta exigia
+                juntar informação espalhada em cinco lugares — e a paciente saía
+                com um PDF genérico.
+              </p>
+            ),
+          }}
+          solucao={{
+            titulo: "Um sistema que acompanha a consulta",
+            texto: (
+              <p>
+                O DietSpace concentra tudo: a anamnese alimenta a avaliação, a
+                avaliação alimenta o plano, e o plano chega à paciente num app
+                com a marca do consultório. O que era retrabalho virou fluxo — e
+                a nutricionista voltou a olhar para a paciente, não para o papel.
+              </p>
+            ),
+          }}
+        />
+
+        {/* Como funciona */}
+        <section className="py-20">
+          <div className="mx-auto grid w-[min(1160px,92%)] items-center gap-12 lg:grid-cols-2">
+            <div>
+              <TituloSecao sobre="Como funciona" titulo="Uma consulta, do começo ao fim" />
+              <ol className="mt-8 space-y-3">
+                {FLUXO.map((f, i) => (
+                  <Reveal key={f.nome} delay={i * 0.06}>
+                    <li className="flex gap-4 rounded-2xl border border-linha bg-cartao p-4">
+                      <span
+                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-mono text-sm font-bold text-white ${
+                          i === FLUXO.length - 1 ? "bg-[#03864A]" : "bg-[#8834F4]"
+                        }`}
+                      >
+                        {i + 1}
+                      </span>
+                      <div>
+                        <h3 className="font-heading text-[1rem] font-semibold text-tinta">{f.nome}</h3>
+                        <p className="mt-1 text-sm text-suave">{f.texto}</p>
+                      </div>
+                    </li>
+                  </Reveal>
+                ))}
+              </ol>
+            </div>
             <Reveal delay={0.1}>
-              <article className="h-full rounded-2xl border border-roxo/25 bg-cartao p-8 shadow-[0_12px_36px_rgba(124,34,206,0.1)]">
-                <p className="font-mono text-xs font-semibold tracking-[0.14em] text-roxo uppercase">
-                  A solução
-                </p>
-                <h2 className="mt-3 font-heading text-xl font-bold text-tinta">
-                  Um sistema que acompanha a consulta
-                </h2>
-                <p className="mt-3 text-suave">
-                  O DietSpace concentra tudo: a anamnese alimenta a avaliação, a
-                  avaliação alimenta o plano, e o plano chega à paciente num app
-                  com a marca do consultório. O que era retrabalho virou fluxo —
-                  e a nutricionista voltou a olhar para a paciente, não para o papel.
-                </p>
-              </article>
+              <div className="relative h-[340px] overflow-hidden rounded-3xl bg-[#131826] shadow-[0_24px_60px_rgba(136,52,244,0.22)] sm:h-[380px]">
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-[radial-gradient(circle_at_85%_0%,rgba(136,52,244,0.34),transparent_58%),radial-gradient(circle_at_0%_100%,rgba(3,186,102,0.14),transparent_50%)]"
+                />
+                <ConsultorioDietSpace />
+              </div>
+              <p className="mt-3 text-center font-mono text-xs text-suave">
+                Ilustração: o plano se monta, a agenda confirma e a paciente registra a água.
+              </p>
             </Reveal>
           </div>
         </section>
 
         {/* O que o sistema faz */}
+        <section className="border-y border-linha bg-fundo-suave py-20">
+          <div className="mx-auto w-[min(1160px,92%)]">
+            <TituloSecao sobre="O que o DietSpace faz" titulo="Tudo o que a consulta pede, num lugar só" />
+            <GradeBlocos blocos={BLOCOS} />
+            <Reveal delay={0.1}>
+              <ul className="mt-8 flex flex-wrap gap-2">
+                {EXTRAS.map((e) => (
+                  <li key={e} className="rounded-full border border-linha bg-cartao px-3.5 py-1.5 text-sm text-grafite">
+                    {e}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Diferenciais */}
         <section className="py-20">
           <div className="mx-auto w-[min(1160px,92%)]">
-            <Reveal>
-              <h2 className="font-display text-[1.8rem] leading-tight font-bold text-tinta md:text-[2.2rem]">
-                O que o DietSpace faz
-              </h2>
-            </Reveal>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {RECURSOS.map((r, i) => (
-                <Reveal key={r.titulo} delay={i * 0.06}>
-                  <article className="h-full rounded-2xl border border-linha bg-cartao p-6 shadow-[0_8px_28px_rgba(29,18,51,0.05)] transition-all hover:-translate-y-1 hover:border-roxo/40">
-                    <span className="mb-4 flex h-9 w-9 items-center justify-center rounded-xl bg-roxo-suave">
-                      <svg className="h-4 w-4 text-roxo" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20 6 9 17l-5-5" />
-                      </svg>
+            <TituloSecao sobre="Diferenciais" titulo="Feito para o consultório de verdade" />
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
+              {DIFERENCIAIS.map((d, i) => (
+                <Reveal key={d.titulo} delay={(i % 2) * 0.08} className="h-full">
+                  <article className="flex h-full gap-4 rounded-2xl border border-linha bg-cartao p-6">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#A464F7] to-[#630BD3] font-mono text-sm font-bold text-white">
+                      {i + 1}
                     </span>
-                    <h3 className="font-heading text-[1rem] font-semibold text-tinta">{r.titulo}</h3>
-                    <p className="mt-2 text-sm text-suave">{r.texto}</p>
+                    <div>
+                      <h3 className="font-heading text-[1.05rem] font-semibold text-tinta">{d.titulo}</h3>
+                      <p className="mt-2 text-sm text-suave">{d.texto}</p>
+                    </div>
                   </article>
                 </Reveal>
               ))}
             </div>
-
-            <Reveal delay={0.1}>
-              <div className="mt-12 flex flex-wrap items-center gap-2">
-                <span className="mr-2 font-mono text-xs font-semibold tracking-[0.14em] text-suave uppercase">
-                  Construído com
-                </span>
-                {STACK.map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full border border-roxo/25 bg-roxo-suave px-3.5 py-1 text-xs font-medium text-roxo"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
+            <div className="mt-12">
+              <Stack itens={STACK} />
+            </div>
           </div>
         </section>
 
-        {/* Chamada final */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-[#2A1052] via-[#1D0B33] to-[#160A2C] py-20 text-[#C9BCE4]">
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(circle_at_75%_30%,rgba(157,78,221,0.18),transparent_55%)]"
-          />
-          <div className="relative mx-auto w-[min(1160px,92%)] text-center">
-            <Reveal>
-              <h2 className="font-display text-[1.9rem] leading-tight font-bold text-creme md:text-[2.4rem]">
-                Seu negócio merece um sistema assim
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-lg text-[#A895CC]">
-                Do consultório à oficina: a PazConcept transforma o processo do
-                seu dia a dia num sistema sob medida.
-              </p>
-              <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <Rastreado
-                  evento="orcamento_servico"
-                  dados={{ servico: "sistema-como-dietspace", origem: "case-rodape" }}
-                  href={zap}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-br from-roxo-claro to-roxo-escuro px-7 py-3.5 font-semibold text-white shadow-[0_10px_30px_rgba(124,34,206,0.4)] transition-all hover:-translate-y-0.5"
-                >
-                  Conversar sobre o meu projeto
-                </Rastreado>
-                <a
-                  href="/servicos/sistemas-sob-medida"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-7 py-3.5 font-semibold text-creme transition-all hover:-translate-y-0.5 hover:border-roxo-claro hover:bg-white/5"
-                >
-                  Ver o serviço de sistemas
-                </a>
-              </div>
-            </Reveal>
-          </div>
-        </section>
+        <ChamadaFinal
+          titulo="Seu negócio merece um sistema assim"
+          texto="Do consultório à oficina: a PazConcept transforma o processo do seu dia a dia num sistema sob medida."
+          zap={zap}
+          servico="sistema-como-dietspace"
+          sistema="DietSpace"
+          url={ENDERECO}
+          rotuloAcesso="Acessar o DietSpace"
+        />
       </main>
       <Footer />
       <Flutuantes />
