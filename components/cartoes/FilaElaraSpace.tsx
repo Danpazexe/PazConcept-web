@@ -121,7 +121,7 @@ export default function FilaElaraSpace() {
         }
         return proxima;
       });
-    }, 1500);
+    }, 2400);
     return () => window.clearInterval(id);
   }, [reduzir, visivel]);
 
@@ -161,7 +161,7 @@ export default function FilaElaraSpace() {
                       initial={{ opacity: 0, y: 14 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -14 }}
-                      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                      transition={{ duration: 1, ease: [0.45, 0, 0.2, 1] }}
                       className="flex items-center gap-2 rounded-md border border-[#E5E8F0] bg-white px-2 py-1.5"
                     >
                       <span className="font-mono text-[0.55rem] font-bold text-[#111426] tabular-nums">
@@ -169,9 +169,9 @@ export default function FilaElaraSpace() {
                       </span>
                       <motion.span
                         key={e.rotulo}
-                        initial={reduzir ? false : { scale: 0.85, opacity: 0 }}
+                        initial={reduzir ? false : { scale: 0.96, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        transition={{ type: "spring", stiffness: 420, damping: 26 }}
+                        transition={{ duration: 0.9, ease: [0.45, 0, 0.2, 1] }}
                         className="inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[0.52rem] font-semibold whitespace-nowrap"
                         style={{ color: e.texto, background: e.fundo }}
                       >
@@ -189,8 +189,9 @@ export default function FilaElaraSpace() {
                           </span>
                         ) : (
                           <motion.span
-                            initial={reduzir ? false : { scale: 0 }}
-                            animate={{ scale: 1 }}
+                            initial={reduzir ? false : { scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 0.9, ease: [0.45, 0, 0.2, 1] }}
                             className="flex h-4 w-4 items-center justify-center rounded-full text-[0.45rem] font-bold text-white"
                             style={{ background: dono.cor }}
                           >
@@ -215,7 +216,7 @@ export default function FilaElaraSpace() {
             {[3, 5, 7, 9].map((h, i) => (
               <span
                 key={h}
-                className={`w-[2px] rounded-sm transition-colors duration-500 ${
+                className={`w-[2px] rounded-sm transition-colors duration-1000 ${
                   enviado || i < 1 ? "bg-white/80" : "bg-white/20"
                 }`}
                 style={{ height: h }}
@@ -224,7 +225,7 @@ export default function FilaElaraSpace() {
           </span>
         </div>
         <div
-          className={`mt-1.5 flex items-center gap-1 rounded-md px-1.5 py-1 text-[0.5rem] font-semibold transition-colors duration-500 ${
+          className={`mt-1.5 flex items-center gap-1 rounded-md px-1.5 py-1 text-[0.5rem] font-semibold transition-colors duration-1000 ${
             enviado ? "bg-[#DCF7E7] text-[#067647]" : "bg-[#FDF1D8] text-[#8A5300]"
           }`}
         >

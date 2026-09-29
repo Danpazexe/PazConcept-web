@@ -34,24 +34,37 @@
   --animate-flutuar: flutuar 5.5s ease-in-out infinite;
   --animate-girar: girar 30s linear infinite;
   --animate-girar-lento: girar-reverso 48s linear infinite;
-  --animate-balancar: balancar 3.2s ease-in-out infinite;
-  --animate-obra: obra 2.4s linear infinite;
 }
 
-/* Cards "em construção": o gancho do guindaste balança e a faixa de
-   progresso corre. O bloco de prefers-reduced-motion no fim desliga tudo. */
-@keyframes balancar {
-  0%,
-  100% {
-    transform: rotate(-6deg);
-  }
-  50% {
-    transform: rotate(6deg);
-  }
+/* Cards "em construção": brilho lento atravessando o blueprint e a barra de
+   progresso. Só roda com o card na tela (data-ativo), e o bloco de
+   prefers-reduced-motion no fim desliga tudo. */
+.blueprint .bp-brilho {
+  transform-box: fill-box;
 }
-@keyframes obra {
-  to {
-    background-position: 40px 0;
+.blueprint .bp-brilho,
+.progresso-brilho::after {
+  animation: brilho-passa 4.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  animation-play-state: paused;
+}
+.blueprint[data-ativo="sim"] .bp-brilho,
+[data-ativo="sim"] .progresso-brilho::after {
+  animation-play-state: running;
+}
+.progresso-brilho::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+}
+@keyframes brilho-passa {
+  0% {
+    transform: translateX(-120%);
+  }
+  60%,
+  100% {
+    transform: translateX(400%);
   }
 }
 

@@ -38,7 +38,7 @@ export default function ConsultorioDietSpace() {
   useEffect(() => {
     if (reduzir || !visivel) return;
     setPasso(0);
-    const id = window.setInterval(() => setPasso((p) => (p + 1) % TOTAL_PASSOS), 1100);
+    const id = window.setInterval(() => setPasso((p) => (p + 1) % TOTAL_PASSOS), 1700);
     return () => window.clearInterval(id);
   }, [reduzir, visivel]);
 
@@ -76,7 +76,7 @@ export default function ConsultorioDietSpace() {
                   strokeDasharray={C}
                   initial={false}
                   animate={{ strokeDashoffset: C * (1 - fracao) }}
-                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 1.2, ease: [0.45, 0, 0.2, 1] }}
                 />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -99,7 +99,7 @@ export default function ConsultorioDietSpace() {
                       style={{ background: m.cor }}
                       initial={false}
                       animate={{ width: `${m.valor * 100}%` }}
-                      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                      transition={{ duration: 1.2, ease: [0.45, 0, 0.2, 1] }}
                     />
                   </span>
                 </div>
@@ -111,10 +111,10 @@ export default function ConsultorioDietSpace() {
               {REFEICOES.slice(0, nRefeicoes).map((r) => (
                 <motion.li
                   key={r.nome}
-                  initial={{ opacity: 0, x: -12 }}
+                  initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.35 }}
+                  transition={{ duration: 0.9, ease: [0.45, 0, 0.2, 1] }}
                   className="flex items-center gap-2 rounded-md border border-[#E8E4F2] bg-white px-2 py-1"
                 >
                   <span className="h-1.5 w-1.5 rounded-full" style={{ background: VERDE }} />
@@ -146,7 +146,7 @@ export default function ConsultorioDietSpace() {
                           key="ok"
                           initial={{ scale: 0.6, opacity: 0 }}
                           animate={{ scale: 1, opacity: 1 }}
-                          transition={{ type: "spring", stiffness: 420, damping: 22 }}
+                          transition={{ type: "spring", stiffness: 120, damping: 22 }}
                           className="inline-flex items-center gap-0.5 rounded-full bg-[#CDF4E2] px-1.5 py-0.5 text-[0.52rem] font-bold whitespace-nowrap text-[#026F3C]"
                         >
                           <svg className="h-2.5 w-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round">
@@ -189,7 +189,7 @@ export default function ConsultorioDietSpace() {
                 style={{ background: "#5BB8F5" }}
                 initial={false}
                 animate={{ height: i < agua ? "100%" : "0%" }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.9, ease: [0.45, 0, 0.2, 1] }}
               />
             </span>
           ))}

@@ -36,7 +36,7 @@ export default function OficinaPitSpace() {
         setLetras(0);
         setEtapa(-1);
       }
-    }, 260);
+    }, 340);
     return () => window.clearInterval(id);
   }, [reduzir, visivel]);
 
@@ -73,13 +73,13 @@ export default function OficinaPitSpace() {
                 key={`${placa}-${i}`}
                 initial={false}
                 animate={{ opacity: i < letras ? 1 : 0.12, y: i < letras ? 0 : 3 }}
-                transition={{ duration: 0.18 }}
+                transition={{ duration: 0.5, ease: [0.45, 0, 0.2, 1] }}
               >
                 {c}
               </motion.span>
             ))}
             {!reduzir && letras < 7 && (
-              <span className="ml-0.5 h-6 w-[2px] animate-pulse bg-[#DB1021]" />
+              <span className="ml-0.5 h-6 w-[2px] bg-[#DB1021]/70" />
             )}
           </div>
         </div>
@@ -88,6 +88,7 @@ export default function OficinaPitSpace() {
         <motion.div
           initial={false}
           animate={{ opacity: letras >= 7 ? 1 : 0.25 }}
+          transition={{ duration: 0.9, ease: [0.45, 0, 0.2, 1] }}
           className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 font-mono text-[0.62rem] text-white/80"
         >
           <span className="h-1.5 w-1.5 rounded-full" style={{ background: VERMELHO }} />
@@ -102,14 +103,14 @@ export default function OficinaPitSpace() {
               style={{ background: `linear-gradient(90deg, #F24F5D, ${VERMELHO})` }}
               initial={false}
               animate={{ width: `${progresso}%` }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1, ease: [0.45, 0, 0.2, 1] }}
             />
             {/* o carrinho */}
             <motion.div
               className="absolute -top-[15px]"
               initial={false}
               animate={{ left: `calc(${progresso}% - 12px)`, opacity: etapa < 0 ? 0 : 1 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1, ease: [0.45, 0, 0.2, 1] }}
             >
               <svg width="24" height="14" viewBox="0 0 24 14" fill="none">
                 <path d="M2 9.5V7.2c0-.5.3-.9.8-1l3-.8L8.6 2.4c.4-.4.9-.6 1.4-.6h5.4c.6 0 1.1.3 1.4.7l2.3 3 2.4.6c.5.1.9.6.9 1.1v2.3" fill="#fff" />
@@ -122,7 +123,7 @@ export default function OficinaPitSpace() {
             {ETAPAS.map((e, i) => (
               <li
                 key={e}
-                className={`text-[0.55rem] font-semibold transition-colors duration-300 sm:text-[0.6rem] ${
+                className={`text-[0.55rem] font-semibold transition-colors duration-700 sm:text-[0.6rem] ${
                   i === etapa ? "text-white" : i < etapa ? "text-[#F24F5D]" : "text-white/40"
                 }`}
               >
