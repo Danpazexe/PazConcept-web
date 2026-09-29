@@ -127,8 +127,10 @@ export default function FilaElaraSpace() {
 
   return (
     <div ref={ref} className="relative h-full w-full" aria-hidden>
+      {/* palco: ocupa o card no celular e fica centrado (altura fixa) no card deitado */}
+      <div className="absolute inset-x-5 top-6 bottom-5 sm:inset-x-8 lg:top-1/2 lg:bottom-auto lg:h-[260px] lg:-translate-y-1/2">
       {/* janela do painel */}
-      <div className="absolute inset-x-5 top-6 bottom-5 overflow-hidden rounded-xl border border-white/10 bg-[#F7F8FC] shadow-[0_24px_60px_rgba(0,0,0,0.45)] sm:inset-x-8">
+      <div className="absolute inset-0 overflow-hidden rounded-xl border border-white/10 bg-[#F7F8FC] shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
         <div className="flex h-full">
           <div className="flex w-9 shrink-0 flex-col items-center gap-2 bg-[#0B0B17] pt-3">
             <span className="h-3.5 w-3.5 rounded-full bg-gradient-to-br from-[#9E80FF] to-[#6C3CFF]" />
@@ -206,7 +208,7 @@ export default function FilaElaraSpace() {
       </div>
 
       {/* celular do motorista: sem sinal, a ocorrência espera na fila do aparelho */}
-      <div className="absolute right-2 bottom-2 w-[112px] rotate-[4deg] rounded-[14px] border-[3px] border-[#1E1E2E] bg-[#0B0B17] p-2 shadow-[0_18px_40px_rgba(0,0,0,0.5)] sm:right-4">
+      <div className="absolute -right-3 -bottom-4 w-[112px] rotate-[4deg] rounded-[14px] border-[3px] border-[#1E1E2E] bg-[#0B0B17] p-2 shadow-[0_18px_40px_rgba(0,0,0,0.5)] sm:right-4">
         <div className="flex items-center justify-between">
           <span className="text-[0.48rem] font-semibold text-white/70">Motorista</span>
           <span className="flex items-end gap-px">
@@ -229,6 +231,7 @@ export default function FilaElaraSpace() {
           <span className={`h-1.5 w-1.5 rounded-full ${enviado ? "bg-[#067647]" : "bg-[#B26A00]"}`} />
           {enviado ? "Enviado ao painel" : "Sem sinal · na fila"}
         </div>
+      </div>
       </div>
     </div>
   );

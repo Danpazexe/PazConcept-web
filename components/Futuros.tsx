@@ -15,7 +15,7 @@ function Guindaste() {
     <svg
       aria-hidden
       viewBox="0 0 120 90"
-      className="h-20 w-28 text-roxo/70"
+      className="h-24 w-32 text-roxo/70"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
@@ -50,33 +50,19 @@ export default function Futuros() {
           O que está sendo construído agora e chega em breve por aqui.
         </SecaoCabecalho>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* mesmo esqueleto dos cards de sistema, compacto: texto à esquerda,
+            visual (a obra) à direita; no celular o visual vai para cima */}
+        <div className="grid gap-6">
           {FUTUROS.map((p, i) => (
-            <Reveal key={p.nome} delay={i * 0.1} className="h-full">
-              <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border-2 border-dashed border-roxo/25 bg-cartao transition-all hover:-translate-y-1.5 hover:border-roxo/60 hover:shadow-[0_18px_44px_rgba(124,34,206,0.1)]">
-                {/* fita de obra */}
-                <div aria-hidden className="h-2.5 opacity-80" style={{ background: FAIXA }} />
-
-                <div className="relative flex flex-1 flex-col p-7">
-                  <div className="absolute top-4 right-3 opacity-80 transition-opacity group-hover:opacity-100">
+            <Reveal key={p.nome} delay={i * 0.08}>
+              <article className="group relative flex flex-col overflow-hidden rounded-2xl border-2 border-dashed border-roxo/25 bg-cartao transition-all hover:-translate-y-1 hover:border-roxo/60 hover:shadow-[0_18px_44px_rgba(124,34,206,0.1)] md:grid md:grid-cols-[1.35fr_0.65fr]">
+                {/* visual: canteiro */}
+                <div className="relative flex flex-col justify-between border-b border-dashed border-roxo/25 bg-fundo-suave md:order-2 md:border-b-0 md:border-l">
+                  <div aria-hidden className="h-2.5 opacity-80" style={{ background: FAIXA }} />
+                  <div className="flex flex-1 items-end justify-center px-6 pt-4">
                     <Guindaste />
                   </div>
-
-                  <span className="inline-flex w-fit items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 font-mono text-[0.62rem] font-semibold tracking-wider text-amber-700 uppercase dark:border-amber-500/30 dark:bg-amber-500/15 dark:text-amber-300">
-                    <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                      <path d="M2 20h20M5 20V9l7-5 7 5v11M9 20v-6h6v6" />
-                    </svg>
-                    Em construção
-                  </span>
-
-                  <h3 className="mt-5 pr-28 font-heading text-2xl font-bold text-tinta">{p.nome}</h3>
-
-                  <p className="mt-3 text-[0.95rem] text-suave">
-                    {p.descricao || "Os detalhes chegam junto com o lançamento."}
-                  </p>
-
-                  {/* progresso "em obra" */}
-                  <div className="mt-6">
+                  <div className="px-6 pt-3 pb-5">
                     <div className="flex items-center justify-between font-mono text-[0.62rem] font-semibold tracking-wider text-suave uppercase">
                       <span>Obra em andamento</span>
                       <span>em breve</span>
@@ -91,8 +77,25 @@ export default function Futuros() {
                       />
                     </div>
                   </div>
+                </div>
 
-                  <div className="mt-auto flex flex-wrap items-center gap-2 pt-6">
+                {/* texto */}
+                <div className="flex flex-col p-6 sm:p-7">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="font-heading text-2xl font-bold text-tinta">{p.nome}</h3>
+                    <span className="ml-auto inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 font-mono text-[0.62rem] font-semibold tracking-wider text-amber-700 uppercase dark:border-amber-500/30 dark:bg-amber-500/15 dark:text-amber-300">
+                      <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                        <path d="M2 20h20M5 20V9l7-5 7 5v11M9 20v-6h6v6" />
+                      </svg>
+                      Em construção
+                    </span>
+                  </div>
+
+                  <p className="mt-3 text-[0.98rem] text-suave">
+                    {p.descricao || "Os detalhes chegam junto com o lançamento."}
+                  </p>
+
+                  <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
                     {p.tags.map((t) => (
                       <span
                         key={t}
@@ -114,20 +117,20 @@ export default function Futuros() {
           ))}
 
           {/* a próxima obra pode ser a sua */}
-          <Reveal delay={FUTUROS.length * 0.1} className="h-full">
-            <article className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-br from-[#2A1052] via-[#1D0B33] to-[#160A2C] p-7 text-[#C9BCE4]">
+          <Reveal delay={FUTUROS.length * 0.08}>
+            <article className="relative flex flex-col gap-6 overflow-hidden rounded-2xl bg-gradient-to-br from-[#2A1052] via-[#1D0B33] to-[#160A2C] p-6 text-[#C9BCE4] sm:p-7 md:flex-row md:items-center md:justify-between">
               <div
                 aria-hidden
                 className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(157,78,221,0.28),transparent_55%)]"
               />
-              <div className="relative">
+              <div className="relative max-w-xl">
                 <span className="font-mono text-[0.62rem] font-semibold tracking-[0.14em] text-roxo-claro uppercase">
                   Terreno livre
                 </span>
-                <h3 className="mt-4 font-heading text-2xl font-bold text-creme">
+                <h3 className="mt-3 font-heading text-2xl font-bold text-creme">
                   O próximo sistema pode ser o seu
                 </h3>
-                <p className="mt-3 text-[0.95rem] text-[#A895CC]">
+                <p className="mt-2 text-[0.95rem] text-[#A895CC]">
                   Tem um processo que vive no WhatsApp e na planilha? Ele vira
                   sistema sob medida.
                 </p>
@@ -138,7 +141,7 @@ export default function Futuros() {
                 href={zap}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative mt-8 inline-flex w-fit items-center gap-2 rounded-xl bg-gradient-to-br from-roxo-claro to-roxo-escuro px-6 py-3 font-semibold text-white shadow-[0_8px_24px_rgba(124,34,206,0.35)] transition-all hover:-translate-y-0.5"
+                className="relative inline-flex w-fit shrink-0 items-center gap-2 rounded-xl bg-gradient-to-br from-roxo-claro to-roxo-escuro px-6 py-3 font-semibold text-white shadow-[0_8px_24px_rgba(124,34,206,0.35)] transition-all hover:-translate-y-0.5"
               >
                 Conversar no WhatsApp
               </Rastreado>

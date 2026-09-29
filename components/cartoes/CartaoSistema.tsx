@@ -10,7 +10,8 @@ import type { Destaque } from "@/data/config";
    animada, logo + selo, uma frase de valor, três destaques com ícone
    próprio e os botões), cada um com a sua identidade de cor.
    Escuro nos dois temas do site: as três marcas vivem bem sobre fundo escuro.
-   `principal` deita o card no desktop (texto à esquerda, cena à direita). */
+   No desktop o card é horizontal (texto à esquerda, cena à direita);
+   no celular empilha com a cena em cima, que é o que chama o olho. */
 
 const ic = "h-4 w-4";
 const tr = {
@@ -31,7 +32,7 @@ type Tema = {
   fundoIcone: string;
   botao: string;
   logo: { src: string; w: number; h: number };
-  simbolo?: string;
+  simbolo?: { src: string; w: number; h: number };
   Cena: () => ReactNode;
   icones: ReactNode[];
 };
@@ -45,7 +46,10 @@ const TEMAS: Record<Destaque["cartao"], Tema> = {
     destaque: "text-[#CDB0FB]",
     fundoIcone: "bg-[#8834F4]/20",
     botao: "bg-[#8834F4] hover:bg-[#630BD3] focus-visible:outline-[#BB8BF9]",
-    logo: { src: "/sistemas/dietspace/logo-branco.png", w: 356, h: 96 },
+    // logo oficial (brand/ do DietSpace): símbolo colorido + palavra em branco,
+    // porque o "Space" da versão colorida é tinta escura e some no fundo escuro
+    logo: { src: "/sistemas/dietspace/palavra-branco.png", w: 335, h: 120 },
+    simbolo: { src: "/sistemas/dietspace/simbolo.png", w: 236, h: 256 },
     Cena: ConsultorioDietSpace,
     icones: [
       // prancheta (anamnese e avaliação)
@@ -84,7 +88,7 @@ const TEMAS: Record<Destaque["cartao"], Tema> = {
     fundoIcone: "bg-[#DB1021]/20",
     botao: "bg-[#DB1021] hover:bg-[#B00D1A] focus-visible:outline-[#F24F5D]",
     logo: { src: "/sistemas/pitspace/palavra-branco.png", w: 441, h: 96 },
-    simbolo: "/sistemas/pitspace/p-original.png",
+    simbolo: { src: "/sistemas/pitspace/p-original.png", w: 192, h: 188 },
     Cena: OficinaPitSpace,
     icones: [
       // carro (OS pela placa)
@@ -104,39 +108,35 @@ const SELOS: Record<Destaque["status"], string> = {
   "Em breve": "border-white/20 bg-white/10 text-white/80",
 };
 
-export default function CartaoSistema({ d, principal = false }: { d: Destaque; principal?: boolean }) {
+export default function CartaoSistema({ d }: { d: Destaque }) {
   const t = TEMAS[d.cartao];
   const Cena = t.Cena;
 
   return (
     <div className={`h-full rounded-3xl bg-gradient-to-br p-[1.5px] ${t.moldura} ${t.sombra}`}>
       <article
-        className={`group relative flex h-full flex-col overflow-hidden rounded-[calc(1.5rem-1.5px)] ${t.fundo} text-[#D9D6E8] ${
-          principal ? "lg:grid lg:grid-cols-[0.95fr_1.05fr]" : ""
-        }`}
+        className={`group relative flex h-full flex-col overflow-hidden rounded-[calc(1.5rem-1.5px)] ${t.fundo} text-[#D9D6E8] lg:grid lg:grid-cols-[0.95fr_1.05fr]`}
       >
         <div aria-hidden className={`pointer-events-none absolute inset-0 ${t.brilho}`} />
 
         {/* mini-cena animada */}
         <div
-          className={`relative h-[260px] border-b border-white/10 sm:h-[280px] ${
-            principal ? "lg:order-2 lg:h-auto lg:min-h-[400px] lg:border-b-0 lg:border-l" : ""
-          }`}
+          className={`relative h-[260px] border-b border-white/10 sm:h-[280px] lg:order-2 lg:h-auto lg:min-h-[400px] lg:border-b-0 lg:border-l`}
         >
           <Cena />
         </div>
 
-        <div className={`relative flex flex-1 flex-col p-7 sm:p-8 ${principal ? "lg:p-10" : ""}`}>
+        <div className="relative flex flex-1 flex-col p-7 sm:p-8 lg:p-10">
           <div className="flex flex-wrap items-center gap-3">
             <h3 className="m-0 flex items-center gap-2.5">
-              {t.simbolo && <Image src={t.simbolo} alt="" width={34} height={33} className="h-8 w-auto" />}
+              {t.simbolo && <Image src={t.simbolo.src} alt="" width={t.simbolo.w} height={t.simbolo.h} className="h-10 w-auto" />}
               <Image
                 src={t.logo.src}
                 alt={d.nome}
                 width={t.logo.w}
                 height={t.logo.h}
                 unoptimized={t.logo.src.endsWith(".svg")}
-                className={t.simbolo ? "h-6 w-auto" : principal ? "h-10 w-auto" : "h-9 w-auto"}
+                className={t.simbolo ? "h-8 w-auto" : "h-10 w-auto"}
               />
             </h3>
             <span
@@ -146,7 +146,7 @@ export default function CartaoSistema({ d, principal = false }: { d: Destaque; p
             </span>
           </div>
 
-          <p className={`mt-5 leading-relaxed text-white ${principal ? "text-[1.12rem] lg:text-[1.2rem]" : "text-[1.02rem]"}`}>
+          <p className="mt-5 text-[1.12rem] leading-relaxed text-white lg:text-[1.2rem]">
             {d.frase}
           </p>
 

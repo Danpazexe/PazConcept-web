@@ -159,15 +159,25 @@ export default function ApresentacaoDietSpace() {
               </div>
 
               <div className="mt-6 flex items-center gap-4">
-                <Image
-                  src="/dietspace-icon.png"
-                  alt="Ícone do DietSpace"
-                  width={64}
-                  height={64}
-                  className="rounded-2xl shadow-[0_10px_26px_rgba(136,52,244,0.3)]"
-                />
-                <h1 className="font-display text-[2.2rem] leading-[1.08] font-bold text-tinta sm:text-5xl">
-                  DietSpace
+                {/* logo oficial: colorida no claro, branca no escuro (o "Space" é tinta escura) */}
+                <h1 className="m-0">
+                  <span className="sr-only">DietSpace</span>
+                  <Image
+                    src="/sistemas/dietspace/logo-horizontal.png"
+                    alt=""
+                    width={593}
+                    height={160}
+                    priority
+                    className="h-14 w-auto sm:h-16 dark:hidden"
+                  />
+                  <Image
+                    src="/sistemas/dietspace/logo-horizontal-branco.png"
+                    alt=""
+                    width={593}
+                    height={160}
+                    priority
+                    className="hidden h-14 w-auto sm:h-16 dark:block"
+                  />
                 </h1>
               </div>
 

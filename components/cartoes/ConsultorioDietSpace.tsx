@@ -60,7 +60,7 @@ export default function ConsultorioDietSpace() {
     <div ref={ref} className="relative h-full w-full" aria-hidden>
       <div className="absolute inset-x-5 top-6 bottom-5 flex items-center gap-3 sm:inset-x-8">
         {/* plano alimentar */}
-        <div className="flex min-h-[214px] min-w-0 flex-1 flex-col rounded-xl border border-white/10 bg-[#F8F7FC] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
+        <div className="flex min-w-0 lg:min-h-[214px] flex-1 flex-col rounded-xl border border-white/10 bg-[#F8F7FC] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
           <div className="flex items-center gap-3">
             <div className="relative h-[84px] w-[84px] shrink-0">
               <svg viewBox="0 0 84 84" className="h-full w-full -rotate-90">
@@ -130,7 +130,7 @@ export default function ConsultorioDietSpace() {
         </div>
 
         {/* agenda do dia */}
-        <div className="hidden min-h-[214px] w-[46%] shrink-0 flex-col rounded-xl border border-white/10 bg-[#F8F7FC] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.45)] min-[520px]:flex">
+        <div className="hidden w-[46%] lg:min-h-[214px] shrink-0 flex-col rounded-xl border border-white/10 bg-[#F8F7FC] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.45)] min-[520px]:flex">
           <p className="text-[0.74rem] font-bold text-[#222C3D]">Agenda de hoje</p>
           <ul className="mt-2 space-y-1.5">
             {AGENDA.map((a, i) => {

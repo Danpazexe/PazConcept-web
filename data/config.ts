@@ -33,8 +33,8 @@ export const SITE = {
 /* ---------- Sistemas em destaque (curadoria manual) ----------
    Cada sistema vira um card com o mesmo esqueleto (components/cartoes):
    mini-cena animada, logo + selo, uma frase de valor, três destaques e os
-   botões. O PRIMEIRO da lista é o destaque principal (card deitado no
-   desktop). Sistema novo: adicione o objeto e o tema dele em
+   botões. Os cards são horizontais e empilhados, na ordem
+   desta lista. Sistema novo: adicione o objeto e o tema dele em
    components/cartoes/CartaoSistema.tsx. */
 
 export type Destaque = {
