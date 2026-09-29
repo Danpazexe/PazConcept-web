@@ -16,15 +16,13 @@ import { DESTAQUES } from "@/data/config";
 export default async function Home() {
   const repos = await getRepos();
 
+  const noAr = DESTAQUES.filter(
+    (d) => d.status === "Em produção" || d.status === "Em teste"
+  ).length;
+
   const metricas = [
     { valor: repos.length + DESTAQUES.length, sufixo: "+", rotulo: "Projetos criados" },
-    {
-      valor: DESTAQUES.filter(
-        (d) => d.status === "Em produção" || d.status === "Em teste"
-      ).length,
-      sufixo: "",
-      rotulo: "Sistema no ar",
-    },
+    { valor: noAr, sufixo: "", rotulo: noAr === 1 ? "Sistema no ar" : "Sistemas no ar" },
     { valor: 100, sufixo: "%", rotulo: "Dedicação em cada entrega" },
   ];
 

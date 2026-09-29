@@ -7,7 +7,7 @@ import { SITE } from "@/data/config";
 import TemaToggle from "./TemaToggle";
 
 /* href com "/#" para funcionarem também fora da home
-   (páginas de serviço, /dietspace, /links) */
+   (páginas de serviço, /dietspace, /elaraspace, /pitspace, /links) */
 const LINKS = [
   { id: "inicio", label: "Início" },
   { id: "servicos", label: "Serviços" },

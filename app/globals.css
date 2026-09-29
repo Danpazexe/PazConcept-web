@@ -34,6 +34,25 @@
   --animate-flutuar: flutuar 5.5s ease-in-out infinite;
   --animate-girar: girar 30s linear infinite;
   --animate-girar-lento: girar-reverso 48s linear infinite;
+  --animate-balancar: balancar 3.2s ease-in-out infinite;
+  --animate-obra: obra 2.4s linear infinite;
+}
+
+/* Cards "em construção": o gancho do guindaste balança e a faixa de
+   progresso corre. O bloco de prefers-reduced-motion no fim desliga tudo. */
+@keyframes balancar {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+@keyframes obra {
+  to {
+    background-position: 40px 0;
+  }
 }
 
 @keyframes marquee {

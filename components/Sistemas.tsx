@@ -2,6 +2,7 @@ import Image from "next/image";
 import Reveal from "./Reveal";
 import Rastreado from "./Rastreado";
 import { SecaoCabecalho } from "./Secao";
+import CartaoSistema from "./cartoes/CartaoSistema";
 import { DESTAQUES } from "@/data/config";
 
 const SELOS: Record<string, string> = {
@@ -15,15 +16,20 @@ const SELOS: Record<string, string> = {
 };
 
 export default function Sistemas() {
+  // vitrine grande (screenshots) para quem não tem card personalizado
+  const vitrine = DESTAQUES.filter((d) => !d.cartao);
+  const cartoes = DESTAQUES.filter((d) => d.cartao);
+
   return (
     <section id="sistemas" className="border-y border-linha bg-fundo-suave py-24">
       <div className="mx-auto w-[min(1160px,92%)]">
         <SecaoCabecalho rotulo="Sistemas" titulo="Sistemas em destaque">
-          As plataformas principais, prontas para uso — com acesso direto por aqui.
+          Os sistemas da casa, cada um com a sua identidade — veja a apresentação
+          completa ou acesse direto por aqui.
         </SecaoCabecalho>
 
         <div className="grid gap-8">
-          {DESTAQUES.map((d, i) => (
+          {vitrine.map((d, i) => (
             <Reveal key={d.nome} delay={i * 0.1}>
               {/* moldura em gradiente (vitrine de lançamento) */}
               <div className="rounded-3xl bg-gradient-to-br from-roxo-claro/60 via-linha to-roxo-escuro/50 p-[1.5px] shadow-[0_22px_70px_rgba(124,34,206,0.18)]">
@@ -196,6 +202,16 @@ export default function Sistemas() {
             </Reveal>
           ))}
         </div>
+
+        {cartoes.length > 0 && (
+          <div className="mt-8 grid gap-8 lg:grid-cols-2">
+            {cartoes.map((d, i) => (
+              <Reveal key={d.nome} delay={i * 0.1} className="h-full">
+                <CartaoSistema d={d} />
+              </Reveal>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

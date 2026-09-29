@@ -70,9 +70,11 @@ export default function Footer() {
               </span>
             )
           )}
-          <a href="/dietspace" className="transition-colors hover:text-creme">
-            Case DietSpace
-          </a>
+          {DESTAQUES.filter((d) => d.casePagina).map((d) => (
+            <a key={d.casePagina} href={d.casePagina} className="transition-colors hover:text-creme">
+              {d.cartao ? `Apresentação ${d.nome}` : `Case ${d.nome}`}
+            </a>
+          ))}
           <a
             href={SITE.redes.github}
             target="_blank"

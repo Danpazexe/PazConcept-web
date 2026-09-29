@@ -47,6 +47,20 @@ export default function Links() {
       externo: false,
     },
     {
+      alvo: "elaraspace",
+      titulo: "ElaraSpace",
+      texto: "ocorrências de entrega sob controle",
+      href: "/elaraspace",
+      externo: false,
+    },
+    {
+      alvo: "pitspace",
+      titulo: "PitSpace",
+      texto: "sistema para oficinas mecânicas",
+      href: "/pitspace",
+      externo: false,
+    },
+    {
       alvo: "github",
       titulo: "GitHub",
       texto: `os projetos de @${SITE.usuario}`,

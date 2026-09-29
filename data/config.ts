@@ -47,6 +47,11 @@ export type Destaque = {
   casePagina?: string; // página de case dentro do site (ex.: "/dietspace")
   recursos: string[];
   dominio: string; // endereço exibido na "janela" do card
+  // Card personalizado (ilustração animada com a identidade do produto).
+  // Sem "cartao", o sistema aparece na vitrine grande com screenshots.
+  cartao?: "elaraspace" | "pitspace";
+  frase?: string; // uma frase: o que o sistema resolve (cards personalizados)
+  rotuloAcesso?: string; // texto do botão de acesso (padrão: "Acessar")
 };
 
 /* ---------- Projetos futuros (o que vem por aí) ---------- */
@@ -67,11 +72,11 @@ export const FUTUROS: ProjetoFuturo[] = [
     tags: ["App mobile", "SaaS"],
   },
   {
-    nome: "MecanicaOS",
-    descricao:
-      "Sistema de gestão para oficinas mecânicas: ordens de serviço, clientes e controle completo da oficina, do check-in do veículo à entrega.",
+    // Só o nome do produto: a apresentação sai quando ele estiver pronto.
+    nome: "GestãoHub",
+    descricao: "",
     status: "Em desenvolvimento",
-    tags: ["SaaS", "Web"],
+    tags: ["Web", "Gestão"],
   },
 ];
 
@@ -93,5 +98,45 @@ export const DESTAQUES: Destaque[] = [
       "Agenda com lembretes e app da paciente",
     ],
     dominio: "www.dietspace.com.br",
+  },
+  {
+    nome: "ElaraSpace",
+    descricao:
+      "Tratativa de ocorrências de entrega para distribuidoras: o motorista relata no celular, mesmo sem sinal, e o escritório trata num painel em tempo real.",
+    frase:
+      "Tira as ocorrências de entrega do WhatsApp e das planilhas: cada caso com um dono, do relato do motorista ao aviso ao vendedor.",
+    status: "Em produção",
+    url: "https://elaraspace.pazconcept.com.br",
+    icone: "/sistemas/elaraspace/elaraspace-simbolo-gradiente.svg",
+    casePagina: "/elaraspace",
+    cartao: "elaraspace",
+    rotuloAcesso: "Acessar o sistema",
+    recursos: [
+      "App do motorista que funciona sem sinal",
+      "Fila em tempo real com posse de uma pessoa só",
+      "Aviso automático ao vendedor pelo WhatsApp",
+      "Relatórios e apresentação mensal em PPTX",
+    ],
+    dominio: "elaraspace.pazconcept.com.br",
+  },
+  {
+    nome: "PitSpace",
+    descricao:
+      "Sistema para oficinas: do check-in pela placa ao caixa, com orçamento aprovado pelo cliente num link e estoque que baixa sozinho.",
+    frase:
+      "Mecânica sob controle: o carro entra pela placa, o cliente aprova pelo link e a conta fecha — sem redigitar nada.",
+    status: "Em desenvolvimento",
+    url: "https://pitspace.vercel.app",
+    icone: "/sistemas/pitspace/p-original.png",
+    casePagina: "/pitspace",
+    cartao: "pitspace",
+    rotuloAcesso: "Conhecer o site",
+    recursos: [
+      "Ordem de serviço que nasce pela placa",
+      "Orçamento aprovado pelo cliente no celular",
+      "App do mecânico direto no box",
+      "Estoque e caixa sem borracha",
+    ],
+    dominio: "pitspace.vercel.app",
   },
 ];
