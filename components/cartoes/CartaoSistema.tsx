@@ -162,7 +162,8 @@ export default function CartaoSistema({ d }: { d: Destaque }) {
           </ul>
 
           <div className="mt-auto flex flex-wrap gap-3 pt-8">
-            {d.casePagina && (
+            {/* Sistema cujo acesso JÁ é o site de apresentação: um botão só. */}
+            {d.casePagina && d.casePagina !== d.url && (
               <a
                 href={d.casePagina}
                 className={`inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 ${t.botao}`}

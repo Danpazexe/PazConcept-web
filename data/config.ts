@@ -105,11 +105,11 @@ export const DESTAQUES: Destaque[] = [
     frase:
       "Tira as ocorrências de entrega do WhatsApp e das planilhas: cada caso com um dono, do relato do motorista ao aviso ao vendedor.",
     status: "Em teste",
-    url: "https://elaraspace.pazconcept.com.br/entrar",
+    url: "https://elaraspace.pazconcept.com.br",
     icone: "/sistemas/elaraspace/elaraspace-simbolo-gradiente.svg",
     casePagina: "https://elaraspace.pazconcept.com.br",
     cartao: "elaraspace",
-    rotuloAcesso: "Entrar no sistema",
+    rotuloAcesso: "Acessar o ElaraSpace",
     recursos: [
       "App do motorista que funciona sem sinal",
       "Fila em tempo real: cada caso com um dono só",
@@ -124,11 +124,11 @@ export const DESTAQUES: Destaque[] = [
     frase:
       "Mecânica sob controle: o carro entra pela placa, o cliente aprova pelo link e a conta fecha — sem redigitar nada.",
     status: "Em desenvolvimento",
-    url: "https://pitspace.pazconcept.com.br/login",
+    url: "https://pitspace.pazconcept.com.br",
     icone: "/sistemas/pitspace/p-original.png",
     casePagina: "https://pitspace.pazconcept.com.br",
     cartao: "pitspace",
-    rotuloAcesso: "Entrar no sistema",
+    rotuloAcesso: "Acessar o PitSpace",
     recursos: [
       "Ordem de serviço que nasce pela placa",
       "Orçamento aprovado pelo cliente no celular",
