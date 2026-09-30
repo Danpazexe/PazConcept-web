@@ -105,11 +105,11 @@ export const DESTAQUES: Destaque[] = [
     frase:
       "Tira as ocorrências de entrega do WhatsApp e das planilhas: cada caso com um dono, do relato do motorista ao aviso ao vendedor.",
     status: "Em teste",
-    url: "https://elaraspace.pazconcept.com.br",
+    url: "https://elaraspace.pazconcept.com.br/entrar",
     icone: "/sistemas/elaraspace/elaraspace-simbolo-gradiente.svg",
-    casePagina: "/elaraspace",
+    casePagina: "https://elaraspace.pazconcept.com.br",
     cartao: "elaraspace",
-    rotuloAcesso: "Acessar o sistema",
+    rotuloAcesso: "Entrar no sistema",
     recursos: [
       "App do motorista que funciona sem sinal",
       "Fila em tempo real: cada caso com um dono só",

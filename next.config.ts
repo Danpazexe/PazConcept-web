@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "avatars.githubusercontent.com" },
     ],
   },
+  // Cada sistema tem o próprio site de apresentação: a página antiga redireciona para ele.
+  async redirects() {
+    return [
+      { source: "/elaraspace", destination: "https://elaraspace.pazconcept.com.br", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

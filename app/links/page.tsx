@@ -50,8 +50,8 @@ export default function Links() {
       alvo: "elaraspace",
       titulo: "ElaraSpace",
       texto: "ocorrências de entrega sob controle",
-      href: "/elaraspace",
-      externo: false,
+      href: "https://elaraspace.pazconcept.com.br",
+      externo: true,
     },
     {
       alvo: "pitspace",
