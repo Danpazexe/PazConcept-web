@@ -57,8 +57,8 @@ export default function Links() {
       alvo: "pitspace",
       titulo: "PitSpace",
       texto: "sistema para oficinas mecânicas",
-      href: "/pitspace",
-      externo: false,
+      href: "https://pitspace.pazconcept.com.br",
+      externo: true,
     },
     {
       alvo: "github",

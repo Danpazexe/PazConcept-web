@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/elaraspace", destination: "https://elaraspace.pazconcept.com.br", permanent: true },
+      { source: "/pitspace", destination: "https://pitspace.pazconcept.com.br", permanent: true },
     ];
   },
   async headers() {

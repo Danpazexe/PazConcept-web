@@ -124,16 +124,16 @@ export const DESTAQUES: Destaque[] = [
     frase:
       "Mecânica sob controle: o carro entra pela placa, o cliente aprova pelo link e a conta fecha — sem redigitar nada.",
     status: "Em desenvolvimento",
-    url: "https://pitspace.vercel.app",
+    url: "https://pitspace.pazconcept.com.br/login",
     icone: "/sistemas/pitspace/p-original.png",
-    casePagina: "/pitspace",
+    casePagina: "https://pitspace.pazconcept.com.br",
     cartao: "pitspace",
-    rotuloAcesso: "Conhecer o site",
+    rotuloAcesso: "Entrar no sistema",
     recursos: [
       "Ordem de serviço que nasce pela placa",
       "Orçamento aprovado pelo cliente no celular",
       "App do mecânico direto no box",
     ],
-    dominio: "pitspace.vercel.app",
+    dominio: "pitspace.pazconcept.com.br",
   },
 ];
