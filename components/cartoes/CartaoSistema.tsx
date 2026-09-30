@@ -31,7 +31,8 @@ type Tema = {
   destaque: string;
   fundoIcone: string;
   botao: string;
-  logo: { src: string; w: number; h: number };
+  /** `classe`: altura própria quando a proporção da logo a faz parecer menor que as outras. */
+  logo: { src: string; w: number; h: number; classe?: string };
   simbolo?: { src: string; w: number; h: number };
   Cena: () => ReactNode;
   icones: ReactNode[];
@@ -68,7 +69,7 @@ const TEMAS: Record<Destaque["cartao"], Tema> = {
     destaque: "text-[#B9A6FF]",
     fundoIcone: "bg-[#6C3CFF]/20",
     botao: "bg-[#6C3CFF] hover:bg-[#5A2BF0] focus-visible:outline-[#9E80FF]",
-    logo: { src: "/sistemas/elaraspace/elaraspace-horizontal-escuro.svg", w: 150, h: 46 },
+    logo: { src: "/sistemas/elaraspace/elaraspace-horizontal-escuro.svg", w: 150, h: 46, classe: "h-16 w-auto" },
     Cena: FilaElaraSpace,
     icones: [
       // sinal cortado (offline)
@@ -136,7 +137,7 @@ export default function CartaoSistema({ d }: { d: Destaque }) {
                 width={t.logo.w}
                 height={t.logo.h}
                 unoptimized={t.logo.src.endsWith(".svg")}
-                className={t.simbolo ? "h-8 w-auto" : "h-10 w-auto"}
+                className={t.logo.classe ?? (t.simbolo ? "h-8 w-auto" : "h-10 w-auto")}
               />
             </h3>
             <span
