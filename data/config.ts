@@ -107,7 +107,7 @@ export const DESTAQUES: Destaque[] = [
     status: "Em teste",
     url: "https://elaraspace.pazconcept.com.br",
     icone: "/sistemas/elaraspace/elaraspace-simbolo-gradiente.svg",
-    casePagina: "https://elaraspace.pazconcept.com.br",
+    casePagina: "/elaraspace",
     cartao: "elaraspace",
     rotuloAcesso: "Acessar o ElaraSpace",
     recursos: [
@@ -126,7 +126,7 @@ export const DESTAQUES: Destaque[] = [
     status: "Em desenvolvimento",
     url: "https://pitspace.pazconcept.com.br",
     icone: "/sistemas/pitspace/p-original.png",
-    casePagina: "https://pitspace.pazconcept.com.br",
+    casePagina: "/pitspace",
     cartao: "pitspace",
     rotuloAcesso: "Acessar o PitSpace",
     recursos: [

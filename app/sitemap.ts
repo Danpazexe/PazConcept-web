@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
-    ...["dietspace"].map((pagina) => ({
+    ...["dietspace", "elaraspace", "pitspace"].map((pagina) => ({
       url: `${BASE}/${pagina}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
